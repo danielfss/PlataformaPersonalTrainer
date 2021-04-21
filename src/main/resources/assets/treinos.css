@@ -1,0 +1,55 @@
+/*------------------------------- CARDS ------------------------------------------ */
+    .container-do-card {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .card {
+        margin-top: 50px;
+        height: 500px;
+        background-color: #353440;
+        border: 1px solid white;
+    }
+
+    .card-body {
+        background-color: #353440;
+    }
+
+    .card-body h5 {
+        color: #ffffff;
+        text-align: center;
+    }
+
+    .card-body p {
+      text-align: center;
+        color: #D9B777;
+    }
+
+    .card-body a {
+        color: #D9B777;
+        border-color: #D9B777;
+    }
+
+    .card-footer {
+        background-color: #353440;
+        display: flex;
+        justify-content: space-evenly;
+
+    }
+
+    .card-footer a {
+        color: #D9B777;
+        border-bottom: #D9B777;
+    }
+
+    .card-footer a button {
+        width: 90%;
+        background-color: #D9B777;
+        color: #ffffff;
+        border-bottom: #ffffff;
+        text-align: center;
+    }
+
+  /*------------------------------- FINAL CARDS ------------------------------------------ */
