@@ -1,0 +1,201 @@
+body {
+  background: #011126;
+    min-height: 100vh;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    background: #011126;
+    width: 100%;
+    height: 30px;
+  }
+
+  main {
+    display: flex;
+  }
+
+.logo{
+  width: 30px;
+  height: 30px;
+}
+
+.titulo {
+    font-family: 'Kiwi Maru', serif;
+    color: white;
+    margin-top: -1px;
+}  
+
+/*------------------------------- Inicio Sidebar ------------------------------------------ */
+.sidebar {
+    background: #353440;
+    margin-top: 26px;
+    padding-top: 30px;
+    position: relative;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    transition: 0.5s;
+    transition-property: left;
+    border-radius: 5px;
+}
+
+.sidebar a:hover{
+    background: #D9B777;
+  }
+
+.sidebar a{
+  color: #fff;
+  display: block;
+  width: 100%;
+  line-height: 60px;
+  text-decoration: none;
+  padding-left: 40px;
+  box-sizing: border-box;
+  transition: 0.5s;
+  transition-property: background;
+}
+
+.sidebar i{
+  padding-right: 10px;
+}
+
+label #sidebar_btn {
+    z-index: 1;
+    color: #fff;
+    cursor: pointer;
+    left: 200px;
+    font-size: 20px;
+    margin: -15px 0;
+    margin-left: 20px;
+    transition: 0.5s;
+    transition-property: color;
+  }
+  
+label #sidebar_btn:hover{
+    color: #D9B777;
+  }
+
+#check:checked ~ .sidebar{
+    left: -160px;
+  }
+  
+  #check:checked ~ .sidebar a span{
+    display: none;
+  }
+
+  #check:checked ~ .sidebar .dropdown{
+    display: none;
+  }
+  
+  #check:checked ~ .sidebar a{
+    font-size: 20px;
+    margin-left: 130px;
+    width: 70px;
+  }
+
+  #check:checked ~ .sidebar strong{
+    display: none;
+  }
+
+  #check:checked ~ .sidebar img{
+    display: none;
+  }
+  
+  #check:checked ~ .sidebar li{
+    font-size: 10px;
+    margin-left: -150px;
+    width: 80px;
+  }
+
+  #check{
+    display: none;
+  }
+/*------------------------------- Final Sidebar ------------------------------------------ */
+
+/*------------------------------- Início Dropdown ------------------------------------------ */
+.dropdown a{
+  color: white;
+  text-decoration: none;
+}
+
+.dropdown-menu{
+  top: 140%;
+  margin-left: -55px;
+  text-align: center;
+}
+
+/*------------------------------- Final Dropdown ------------------------------------------ */
+
+  /*------------------------------- CARDS ------------------------------------------ */
+  .container-do-card {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card {
+    margin-top: 50px;
+    height: 500px;
+    background-color: #353440;
+    border: 1px solid white;
+}
+
+.card-body {
+    background-color: #353440;
+}
+
+.card-body h5 {
+    color: #ffffff;
+    text-align: center;
+}
+
+.card-body p {
+  text-align: center;
+    color: #D9B777;
+}
+
+.card-body a {
+    color: #D9B777;
+    border-color: #D9B777;
+}
+
+.card-footer {
+    background-color: #353440;
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.card-footer a {
+    color: #D9B777;
+    border-bottom: #D9B777;
+}
+
+.card-footer a button {
+    width: 90%;
+    background-color: #D9B777;
+    color: #ffffff;
+    border-bottom: #ffffff;
+    text-align: center;
+}
+
+/*------------------------------- FINAL CARDS ------------------------------------------ */
+.btn-outline-success2{
+  text-align: right;
+  color: #D9B777;
+  border-color: #D9B777;
+}
+
+.btn-outline-success2:hover{
+  background: #D9B777;
+  border-color: #D9B777;
+}
+
+
+
+

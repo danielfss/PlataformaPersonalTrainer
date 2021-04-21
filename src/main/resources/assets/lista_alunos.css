@@ -1,0 +1,67 @@
+.main {
+  display: flex;
+}
+.imagem-lista-aluno{
+  margin-left: 3%;
+  width: 50px; 
+  border-radius: 50%;
+  margin-right: 2%;
+}
+.nome-lista-aluno{
+  width: 260px;
+  background-color: #353440;
+  color: white;
+  font-weight: 500;
+  border-color: transparent;
+}
+
+.email-lista-aluno{
+  width: 200px;
+  background-color: #353440;
+  color: white;
+  font-weight: 500;
+  border-color: transparent;
+}
+.telefone-lista-aluno{
+  width: 180px;
+  background-color: #353440;
+  color: white;
+  font-weight: 500;
+  border-color: transparent;
+}
+.situacao-lista-aluno{
+  width: 150px;
+  background-color: #353440;
+  color: white;
+  font-weight: 500;
+  border-color: transparent;
+}
+.treino-lista-aluno{
+  width: 180px;
+  background-color: #353440;
+  color: white;
+  font-weight: 500;
+  border-color: transparent;
+}
+.bg-box{
+  background-color: #353440;
+}
+.subtitulo2 {
+  margin-top: -2.5%;
+  padding: 12px;
+  color: white;
+  background-color: #D9B777;
+  text-align: center;
+  width: 300px;
+  font-size: 23px;
+  border-radius: 10px;
+}
+.margem{
+  margin-top: 5%;
+}
+.linha{
+  color:#FFF;
+  margin-left: 3%;
+  margin-right: 3%;
+  border-top: 1px solid
+}

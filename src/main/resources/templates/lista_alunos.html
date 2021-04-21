@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Lista de Alunos</title>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
+            integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
+            integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
+            crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../../../../../../Downloads/Junque1r4-front-end-d0f04c7d2155/assets/styles.css">
+        <link rel="stylesheet" href="../../../../../../Downloads/Junque1r4-front-end-d0f04c7d2155/assets/lista_alunos.css">
+        <link rel="stylesheet" href="../../../../../../Downloads/Junque1r4-front-end-d0f04c7d2155/assets/dashboard_prof.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    </head>
+
+    <body>
+        <!-- NAVBAR -->
+        <header>
+            <nav class="navbar navbar-dark bg-dark">
+                <div class="container-fluid">
+
+                    <a class="navbar-brand titulo" href="home.html">
+                        <img src="https://seeklogo.com/images/U/uol-logo-68F369E089-seeklogo.com.png"
+                            class="d-inline-block align-text-top logo">
+                        <span>Compasso</span>
+                        <label for="check">
+                            <i class="fas fa-bars" id="sidebar_btn"></i>
+                        </label>
+                    </a>
+
+                    <div class="dropdown">
+                        <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle"
+                            id="dropdownUser1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="https://a-static.mlcdn.com.br/618x463/kit-6-galhos-de-rosas-aveludadas-decora-flores-artificiais/decorafloresartificiais/6639562408/cac5c2c84ea135796a9be967d812bdda.jpg"
+                                alt="mdo" class="rounded-circle me-2" width="32" height="32">
+                            <strong>Perfil</strong>
+                        </a>
+                        <ul class="float-right dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                            <li><a class="dropdown-item" href="minha_conta.html"><span>Editar Perfil</span></a></li>
+                            <li><a class="dropdown-item" href="#"><span>Configurações</span></a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#"><span>Logout</span></a></li>
+                        </ul>
+                    </div> 
+                </div>
+            </nav>
+        </header>
+        <!-- FIM NAVBAR -->
+
+        
+        <!-- SIDEBAR -->
+        <main>
+            <input type="checkbox" id="check">
+
+            <div class="sidebar">
+                <a href="home.html" class="nav-link text-white"><i class="bi bi-house"></i><span>Home</span></a>
+                <a href="dashboard_prof.html" class="nav-link text-white"><i
+                        class="bi bi-graph-up"></i><span>Dashboard</span>
+                </a>
+                <a href="agenda_prof.html" class="nav-link text-white">
+                    <i class="bi bi-calendar2-plus"></i>
+                    <span>Agendamento</span>
+                </a>
+                <a href="lista_alunos.html" class="nav-link text-white">
+                    <i class="bi bi-people-fill"></i>
+                    <span>Alunos</span>
+                </a>
+                <a href="videos.html" class="nav-link text-white">
+                    <i class="bi bi-collection-play"></i>
+                    <span>Videos</span>
+                </a>
+                <a href="pagamento.html" class="nav-link text-white">
+                    <i class="bi bi-credit-card"></i>
+                    <span>Pagamento</span>
+                </a>
+
+                <!-- INICIO MODAL-FADE -->
+                <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header text-center">
+                                <h4 class="modal-title w-100">Novo Treino</h4>
+                                <button type="button" class="btn btn-outline-success5" data-dismiss="modal"
+                                    aria-label="Close">
+                                    <span aria-hidden="true">&times;</span> <!-- BOTÃO DE FECHAR -->
+                                </button>
+                            </div>
+                            <div class="modal-body mx-3">
+                                <div class="md-form mb-0 form-group">
+                                    <label data-error="wrong" data-success="right"
+                                        for="defaultForm-linkvideo">Título:</label>
+                                    <input id="defaultForm-desc" class="form-control validate"
+                                        placeholder="Titulo do treino"></input>
+                                    <label data-error="wrong" data-success="right" for="defaultForm-desc"></label>
+                                </div>
+                                <div class="md-form mb-4 form-group">
+                                    
+                                    <label data-error="wrong" data-success="right" for="defaultForm-linkvideo">Link do
+                                        Vídeo:</label>
+                                    <input type="text" id="defaultForm-linkvideo" class="form-control validate"
+                                        placeholder="Adicione o link do vídeo">
+                                </div>
+
+                                <div class="md-form mb-3 form-group">
+                                    <label data-error="wrong" data-success="right"
+                                        for="defaultForm-linkvideo">Upload:</label>
+                                    <input type="file" name="upload" accept="application/pdf" id="defaultForm-file"
+                                        class="form-control validate">
+                                    <small>Adicione um arquivo em formato PDF.</small>
+                                    <label data-error="wrong" data-success="right" for="defaultForm-file"></label>
+                                </div>
+
+                                <div class="md-form mb-0 form-group">
+                                    <label data-error="wrong" data-success="right"
+                                        for="defaultForm-linkvideo">Descrição:</label>
+                                    <textarea id="defaultForm-desc" class="form-control validate"
+                                        placeholder="Descrição do treino"></textarea>
+                                    <label data-error="wrong" data-success="right" for="defaultForm-desc"></label>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer d-flex justify-content-center form-group">
+                                <button class="btn btn-outline-success2">Enviar</button>
+                                <button type="button" class="btn btn-outline-success2" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- FIM MODAL-FADE -->
+            </div>
+            <!-- FIM SIDEBAR -->
+            
+            <!-- LISTAGEM ALUNOS-->
+            <div class="container margem">
+                <div class="d-flex justify-content-center">
+                    <div class=" border border-secondary-3 rounded bg-box">
+                        <div class=" d-flex justify-content-center">
+                            <h3 class="subtitulo2 mb-4">Alunos
+                                Cadastrados</h3>
+                        </div>
+                        <div class="linha mb-0"></div>
+                        <div class="d-flex justify-content-center ">
+                            <!-- CABEÇALHO DA LISTA-->
+                            <ul class="list-group list-group-horizontal-md list-group-flush">
+                                <li class="list-group-item text-center nome-lista-aluno ">Nome aluno(a)</li>
+                                <li class="list-group-item text-center email-lista-aluno">Email</li>
+                                <li class="list-group-item text-center telefone-lista-aluno">Telefone</li>
+                                <li class="list-group-item text-center situacao-lista-aluno">Situação</li>
+                                <li class="list-group-item text-center treino-lista-aluno">Novo Treino</li>
+                            </ul>
+                            <!-- FIM CABEÇALHO DA LISTA-->
+                        </div>
+                        <div class="linha mt-0 mb-3"></div>
+                        <!-- INICIO LISTAGEM -->
+                        <!-- INÍCIO ALUNO 1-->
+                        <div class="d-flex justify-content-center mt-0 mb-1">
+                            <ul class="list-group list-group-horizontal-md">
+                                <li class="list-group-item text-center align-self-center nome-lista-aluno"><img
+                                        src="https://i.pinimg.com/originals/be/d7/ba/bed7baed2ba5c9895d0f854ba32c0a42.jpg"
+                                        class="imagem-lista-aluno" />
+                                    <spam class="nome-text-lista-aluno">José de Almeida</spam>
+                                </li>
+
+                                <li class="list-group-item text-center align-self-center p-4 email-lista-aluno">
+                                    <span>jose@aluno.com</span>
+                                </li>
+                                <li class="list-group-item text-center align-self-center p-4 telefone-lista-aluno">
+                                    4002-8922 <i class="bi bi-chat-dots"></i>
+                                </li>
+                                <li class="list-group-item text-center text-center align-self-center p-4 situacao-lista-aluno">
+                                    Devendo</li>
+                                <li class="list-group-item text-center text-center align-self-center p-4 treino-lista-aluno"><a href="#"
+                                        class="nav-link text-white" data-toggle="modal" data-target="#modalLoginForm">
+                                        <i class="bi bi-cloud-upload"></i>
+                                    </a></li>
+                            </ul>
+                        </div>
+                        <!-- FIM ALUNO 1-->
+                        <!-- INÍCIO ALUNO 2-->
+                        <div class="d-flex justify-content-center mt-0 mb-1">
+                            <ul class="list-group list-group-horizontal-md lista-alunos">
+                                <li class="list-group-item text-center align-self-center nome-lista-aluno"><img
+                                        src="https://i.pinimg.com/474x/ed/be/34/edbe3429d0912ed40a77fdf559b7384d.jpg"
+                                        class="imagem-lista-aluno" />
+                                    <spam class="nome-text-lista-aluno">Maria da Conceição</spam>
+                                </li>
+
+                                <li class="list-group-item text-center align-self-center p-4 email-lista-aluno">
+                                    <span>maria@aluno.com</span>
+                                </li>
+                                <li class="list-group-item text-center align-self-center p-4 telefone-lista-aluno">
+                                    4002-8922 <i class="bi bi-chat-dots"></i>
+                                </li>
+                                <li class="list-group-item text-center text-center align-self-center p-4 situacao-lista-aluno">
+                                    Em dia</li>
+                                <li class="list-group-item text-center text-center align-self-center p-4 treino-lista-aluno"><a href="#"
+                                        class="nav-link text-white" data-toggle="modal" data-target="#modalLoginForm">
+                                        <i class="bi bi-cloud-upload"></i>
+                                    </a></li>
+                            </ul>
+                        </div>
+                        <!-- FIM ALUNO 2-->
+                        <!-- INÍCIO ALUNO 3-->
+                        <div class="d-flex justify-content-center mt-0 mb-1">
+                            <ul class="list-group list-group-horizontal-md lista-alunos">
+                                <li class="list-group-item text-center align-self-center nome-lista-aluno"><img
+                                        src="https://64.media.tumblr.com/d385134202752d57a8c03654fb729285/tumblr_p9pzz1Fxct1tpzc2co1_250.png"
+                                        class="imagem-lista-aluno" />
+                                    <spam class="nome-text-lista-aluno">Ana Júlia de Assis</spam>
+                                </li>
+
+                                <li class="list-group-item text-center align-self-center p-4 email-lista-aluno">
+                                    <span>ana@aluno.com</span>
+                                </li>
+                                <li class="list-group-item text-center align-self-center p-4 telefone-lista-aluno">
+                                    4002-8922 <i class="bi bi-chat-dots"></i>
+                                </li>
+                                <li class="list-group-item text-center text-center align-self-center p-4 situacao-lista-aluno">
+                                    Devendo</li>
+                                <li class="list-group-item text-center text-center align-self-center p-4 treino-lista-aluno"><a href="#"
+                                        class="nav-link text-white" data-toggle="modal" data-target="#modalLoginForm">
+                                        <i class="bi bi-cloud-upload"></i>
+                                    </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- FIM ALUNO 3-->
+                </div>
+            </div> <!-- FIM LISTAGEM-->
+        </main>
+        <!-- Scripts -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+            </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
+            </script>
+    </body>
+</html>

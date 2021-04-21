@@ -1,0 +1,234 @@
+main {
+    display: flex;
+}
+
+#calendario{
+    margin-top: 30px;
+}
+
+#labelRadios{
+    text-align: center;
+}
+
+#Radios{
+    background-color: #353440;
+    color: white;
+    font-size: 18px;
+    margin-top: 50px;
+    margin-left: 4%;
+    
+}
+.lista-agendamento{
+  margin-left: 2%;
+  background-color: #353440;
+  
+}
+.listagem-agendamento{
+  margin-left: 2%;
+  font-size: 13px;
+  color: white;
+  border-color: transparent;
+  background-color: #353440;
+}
+.subtitulo2 {
+  margin-top: -2.5%;
+  padding: 12px;
+  color: white;
+  background-color: #D9B777;
+  text-align: center;
+  width: 300px;
+  font-size: 23px;
+  border-radius: 10px;
+}
+.bt-tamanho{
+  margin-top: 0;
+  margin-bottom: 0;
+  border-radius: 10px;
+  width: 25px !important;
+  height: 25px !important;
+  margin-left: -2%;
+}
+.lista-agenda{
+  margin-left: -0%;
+  background-color: #353440;
+}
+.agenda-nome{
+  margin-left: -1%;
+  width: 250px;
+  background-color: #353440;
+  color: white;
+  font-weight: 500;
+  border-color: transparent;
+}
+.agenda-horario{
+  margin-left: -3%;
+  width: 220px;
+  background-color: #353440;
+  color: white;
+  font-weight: 500;
+  border-color: transparent;
+}
+
+.agenda-telefone{
+  width: 100px;
+  background-color: #353440;
+  color: white;
+  font-weight: 500;
+  border-color: transparent;
+}
+.agenda-mensagem{
+  width: 260px;
+  background-color: #353440;
+  color: white;
+  font-weight: 500;
+  border-color: transparent;
+}
+.agenda-novo-treino{
+  width: 150px;
+  background-color: #353440;
+  color: white;
+  font-weight: 500;
+  border-color: transparent;
+}
+
+.listagem-agenda-horario{
+  margin-left: 1%;
+  width: 200px;
+  background-color: #353440;
+  color: white;
+  font-weight: 400;
+  font-size: 15px;
+  border-color: transparent;
+}
+.listagem-agenda-nome{
+  margin-left: -5%;
+  width: 250px;
+  background-color: #353440;
+  color: white;
+  font-weight: 400;
+  font-size: 15px;
+  border-color: transparent;
+}
+.listagem-agenda-telefone{
+  margin-left: -1%;
+  width: 150px;
+  background-color: #353440;
+  color: white;
+  font-weight: 400;
+  font-size: 15px;
+  border-color: transparent;
+}
+.listagem-agenda-mensagem{
+  margin-left: -1%;
+  width: 250px;
+  background-color: #353440;
+  color: white;
+  font-weight: 400;
+  font-size: 15px;
+  border-color: transparent;
+}
+.listagem-agenda-novo-treino{
+  width: 150px;
+  background-color: #353440;
+  color: white;
+  font-weight: 500;
+  border-color: transparent;
+}
+.imagem-agenda{
+  margin-left: 3%;
+  width: 30px; 
+  margin-right: 2%;
+}
+.linha{
+  color:#FFF;
+  margin-left: 3%;
+  margin-right: 3%;
+  border-top: 1px solid
+}
+
+  
+/*------------------------------- FORM DENTRO DO MODAL ------------------------------------------ */
+
+#formAgendamento {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #353440;
+    border-radius: 5px;
+  }
+  
+  .form-group label {
+    color: #BF9B6F;
+    font-weight: 500;
+    margin-right: 20px;
+  }
+  
+  .btn-default {
+    margin-top: 4px;
+  }
+  
+  .btn-outline-success2 {
+    text-align: right;
+    color: #d9b777;
+    border-color: #d9b777;
+  }
+  
+  .btn-outline-success2:hover {
+    background: #d9b777;
+    border-color: #d9b777;
+  }
+  
+  /*------------------------------- FORM DENTRO DO MODAL ------------------------------------------ */
+  
+  
+  /* ------------------------------------------  MODAL ------------------------------------------ */
+  
+  .modal-header{
+      background: #D9B777;
+      border-color: white;
+      border-radius:6px;
+      border-style: none;
+  }
+  
+  .modal h4{
+      font-family: 'Mitr', sans-serif;
+      color: white;
+      font-size: 36px;
+  }
+  
+  .modal-content{
+      background: #353440;
+  }
+  
+  .form-group small{
+      color: #D9B777;
+  }
+  
+  .btn-outline-success5{
+      text-align: center;
+      color: white;
+      border-color: white;
+      width: 50px;
+      background: #353440;
+    }
+    
+    .btn-outline-success5:hover{
+      background: #D9B777;
+      border-color: #D9B777;
+    }
+  
+  .dropdownProf{
+      margin-top: 160px;
+  }
+  
+  .dropdownProf a{
+    color: white;
+    text-decoration: none;
+  }
+
+  .conteudoModal {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+  }
+  /* ------------------------------------------  MODAL ------------------------------------------ */
+  

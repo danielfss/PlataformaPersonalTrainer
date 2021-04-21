@@ -1,0 +1,40 @@
+main{
+  display: flex;
+}
+
+.modal-header{
+    background: #D9B777;
+    border-color: white;
+    border-radius:6px;
+    border-style: none;
+} 
+.modal h4{
+    font-family: 'Mitr', sans-serif;
+    color: white;
+    font-size: 36px;
+    margin-right: -100px;
+}
+
+.modal label{
+  color: white;
+}
+
+.modal-content{
+    background: #353440;
+}
+
+.form-group small{
+    color: #D9B777;
+}
+
+.btn-outline-success5{
+    text-align: center;
+    color: white;
+    border-color: white;
+    background: #353440;
+  }
+  
+  .btn-outline-success5:hover{
+    background: #817b7b;
+    border-color: #ffffff;
+  }
