@@ -2,7 +2,6 @@ package com.compasso.academia.model;
 
 import java.time.LocalDateTime;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,7 +11,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Aula")
+@Table(name = "Aulas")
 public class Aula 
 {
     @Id
@@ -24,9 +23,8 @@ public class Aula
     @OneToOne
     private Usuario personal;
 
-    @JoinColumn(unique = true)
+    @JoinColumn(unique = true, nullable = true)
     @OneToOne
-    @Column(nullable = true)
     private Usuario aluno;
 
     public Long getId() {

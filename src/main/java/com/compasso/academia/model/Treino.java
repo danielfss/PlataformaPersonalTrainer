@@ -24,11 +24,11 @@ public class Treino
 
     @OneToMany
     @Column(nullable = true)
-    private Arquivo arquivo;
+    private List<Arquivo> arquivo;
 
     @OneToMany
     @Column(nullable = true)
-    private Video video;
+    private List<Video> video;
 
     @ManyToMany
     private List<Usuario> usuario;
@@ -57,19 +57,19 @@ public class Treino
         this.descricao = descricao;
     }
 
-    public Arquivo getArquivo() {
+    public List<Arquivo> getArquivo() {
         return arquivo;
     }
 
-    public void setArquivo(Arquivo arquivo) {
+    public void setArquivo(List<Arquivo> arquivo) {
         this.arquivo = arquivo;
     }
 
-    public Video getVideo() {
+    public List<Video> getVideo() {
         return video;
     }
 
-    public void setVideo(Video video) {
+    public void setVideo(List<Video> video) {
         this.video = video;
     }
 

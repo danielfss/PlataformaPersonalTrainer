@@ -27,8 +27,8 @@ public class CT_Treino
         Treino treino = new Treino();
         treino.setTitulo("Treino 1");
         treino.setDescricao("Testando o primeiro treino");
-        treino.setArquivo(arquivo);
-        treino.setVideo(video);
+        treino.setArquivo(Arrays.asList(arquivo));
+        treino.setVideo(Arrays.asList(video));
         treino.setUsuario(Arrays.asList(usuario));
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("personaltrainer");
