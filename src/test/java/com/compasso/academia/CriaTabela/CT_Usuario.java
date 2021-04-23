@@ -12,9 +12,8 @@ public class CT_Usuario
     public static void main(String[] args) 
     {
         Usuario usuario = new Usuario();
-        usuario.setUsuario("testePersonal");
+        usuario.setNome("testePersonal");
         usuario.setSenha("123");
-        usuario.setTipoUsuario(TipoUsuario.PERSONAL);
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("personaltrainer");
         EntityManager em = emf.createEntityManager();
