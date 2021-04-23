@@ -6,13 +6,12 @@
 
     <persistence-unit name="personaltrainer">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>com.compasso.academia.model</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/personaltrainer" />
             <property name="javax.persistence.jdbc.user" value="root" />
-            <property name="javax.persistence.jdbc.password" value="cada um muda para a sua" />
+            <property name="javax.persistence.jdbc.password" value="root" />
 
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
             <property name="hibernate.show_sql" value="true" />
