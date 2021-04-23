@@ -1,26 +1,32 @@
 package com.compasso.academia.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Table(name = "Usuarios")
-public class Usuario 
+public class Usuario implements UserDetails
 {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String usuario;
+    private String nome;
+    private String email;
     private String senha;
-    @Enumerated(EnumType.STRING)
-    @Column(columnDefinition = "varchar(10) default 'ALUNO'")
-    private TipoUsuario tipoUsuario = TipoUsuario.ALUNO; //Tentar evitar esse set default posteriormente
+    private boolean enabled = true;
+    private boolean debtor = true;
+
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    private List<Perfil> perfis = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -30,12 +36,12 @@ public class Usuario
         this.id = id;
     }
 
-    public String getUsuario() {
-        return usuario;
+    public String getNome() {
+        return nome;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setNome(String usuario) {
+        this.nome = usuario;
     }
 
     public String getSenha() {
@@ -46,11 +52,47 @@ public class Usuario
         this.senha = senha;
     }
 
-    public TipoUsuario getTipoUsuario() {
-        return tipoUsuario;
+
+    public String getEmail() {
+        return email;
     }
 
-    public void setTipoUsuario(TipoUsuario tipoUsuario) {
-        this.tipoUsuario = tipoUsuario;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return this.perfis;
+    }
+
+    @Override
+    public String getPassword() {
+        return this.senha;
+    }
+
+    @Override
+    public String getUsername() {
+        return this.email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return this.enabled;
     }
 }
