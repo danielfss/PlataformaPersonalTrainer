@@ -26,14 +26,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, "/home").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .formLogin()
-                .defaultSuccessUrl("/dashboard");
+                .formLogin(
+                        form -> form
+                                .loginPage("/login")
+                                .permitAll()
+        ).logout(logout -> logout.logoutUrl("/logout"));
     }
 
     // Config static files
     @Override
     public void configure(WebSecurity web) {
-        web.ignoring().antMatchers("/css/**", "/js/**");
+        web.ignoring().antMatchers("/resources/static/**").anyRequest();
     }
 
 
@@ -41,5 +44,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(authService).passwordEncoder(new BCryptPasswordEncoder());
+    }
+
+    public static void main(String[] args) {
+        String bcp = new BCryptPasswordEncoder().encode("123");
+        System.out.println(bcp);
     }
 }
