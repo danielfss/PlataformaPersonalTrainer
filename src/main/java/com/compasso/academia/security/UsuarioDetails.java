@@ -23,11 +23,11 @@ public class UsuarioDetails implements UserDetails {
 	
 	@Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-		Set<Role> roles = usuario.getRoles();
+		List<Role> roles = usuario.getRoles();
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
         
         for (Role role: roles) {
-        	authorities.add(new SimpleGrantedAuthority(role.getName()));
+        	authorities.add(new SimpleGrantedAuthority(role.getNome()));
         }
 		
         return authorities;
@@ -80,7 +80,7 @@ public class UsuarioDetails implements UserDetails {
 		this.usuario.setNome(name);
 	}
 	
-	public Set<Role> getRoles() {
+	public List<Role> getRoles() {
 
 		return usuario.getRoles();
 	}	

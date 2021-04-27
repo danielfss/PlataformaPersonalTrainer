@@ -6,8 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/*@Entity
-@Table(name = "Videos")*/
+@Entity
+@Table(name = "Videos")
 public class Video 
 {
     @Id

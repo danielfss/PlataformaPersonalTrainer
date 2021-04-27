@@ -9,7 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -28,16 +28,14 @@ public class Treino implements Serializable{
     @Column(nullable = true)
     private String descricao;
 
-
     @Column(nullable = true)
     private URL arquivo;
-
 
     @Column(nullable = true)
     private URL video;
     
-    @OneToMany
-    private List<Usuario> usuarios;
+    @ManyToMany
+	private List<Usuario> usuario;
     
     public Long getId() {
         return id;
@@ -79,13 +77,12 @@ public class Treino implements Serializable{
 		this.video = video;
 	}
 
-	public List<Usuario> getUsuarios() {
-		return usuarios;
-	}
+    public List<Usuario> getUsuario() {
+        return usuario;
+    }
 
-	public void setUsuarios(List<Usuario> usuarios) {
-		this.usuarios = usuarios;
-	}
-	
+    public void setUsuario(List<Usuario> usuario) {
+        this.usuario = usuario;
+    }
 }
 
