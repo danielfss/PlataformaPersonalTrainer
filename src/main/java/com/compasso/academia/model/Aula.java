@@ -10,8 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-/*@Entity
-@Table(name = "Aulas")*/
+@Entity
+@Table(name = "Aulas")
 public class Aula 
 {
     @Id
