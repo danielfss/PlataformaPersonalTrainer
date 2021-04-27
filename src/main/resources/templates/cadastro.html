@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
     <head>
         <meta charset="UTF-8">
@@ -14,8 +14,8 @@
             integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="" th:href="@{/css/home.css}">
-        <link rel="stylesheet" href="" th:href="@{/css/cadastro.css}">
+        <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}">
+        <link rel="stylesheet" type="text/css" th:href="@{/css/cadastro.css}">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
@@ -23,62 +23,44 @@
 
     <body>
         <!-- NAVBAR -->
-        <header>
-            <nav class="navbar navbar-dark bg-dark">
-                <div class="container-fluid">
-                    
-                    <a class="navbar-brand titulo" href="home.html">
-                        <img src="https://seeklogo.com/images/U/uol-logo-68F369E089-seeklogo.com.png" class="d-inline-block align-text-top logo">
-                        <span>Compasso</span>
-                    </a>
-                    
-                    <div class="logo-container">
-                        <a href="home.html" class="btn btn-outline-success3" >Home</a>
-                        <a href="sobre_nos.html" class="btn btn-outline-success3" >Sobre Nós</a>
-                        <a href="contato.html" class="btn btn-outline-success3" >Contato</a>
-                        <a class="btn btn-outline-success3" href="login.html">Login</a>
-                    </div>
-                </div>
-            </nav>
-        </header>
+        <header th:replace="~{base :: headerHome}"></header>
         <!-- FIM NAVBAR -->
 
         <!-- Início do Formulário -->
         <div class="container Forms">
-            <form id="formDados" name="formDados" action="minha_conta.html">
+            <form id="formDados" name="formDados" th:action="@{/submeter_registro}" method="post" th:object="${usuario}">
                 <div class="border border-secondary-3 rounded mt-1">
                     <div class="container text-center">
                         <h3 class="subtitulo">Cadastro</h3>
                         <div class="form-group">
                             <div class="form-group row mt-2 mb-2">
                                 <label class="col-form-label" for="nome">Nome:</label>
-                                <div class="col-8">
-                                    
-                                    <input type="text" class="form-control" id="nome" placeholder="Insira o nome" name="nome">
+                                <div class="col-8">                                
+                                    <input type="text" class="form-control" placeholder="Insira o nome" th:field="*{nome}" required minlength="2" maxlength="10"/>
                                 </div>
                             </div>
                             <div class="form-group row mt-2 mb-2">       
                                 <div class="col-8">
                                     <label class="col-form-label" for="email">Email:</label>
-                                    <input type="email" class="form-control" id="email" placeholder="Insira o email" name="email">
+                                    <input type="email" class="form-control" id="email" placeholder="Insira o email" name="email" th:field="*{email}" required minlength="4" maxlength="20"/>
                                 </div>
                             </div>
                             <div class="form-group row mt-2 mb-2">  
                                 <div class="col-8">
                                     <label class="col-form-label" for="tel">Telefone:</label>
-                                    <input type="tel" class="form-control" id="tel" placeholder="Insira o telefone" name="tel">
+                                    <input type="tel" class="form-control" id="tel" placeholder="Insira o telefone" name="tel" th:field="*{telefone}" required minlength="4" maxlength="20"/>
                                 </div>
                             </div>
                             <div class="form-group row mt-2 mb-2">                             
                                 <div class="col-8">
                                     <label class="col-form-label" for="senha">Senha:</label>
-                                    <input type="password" class="form-control" id="senha" placeholder="Insira a senha" name="senha">
+                                    <input type="password" class="form-control" id="senha" placeholder="Insira a senha" name="senha" th:field="*{senha}" required minlength="8" maxlength="30"/>
                                 </div>
                             </div>
                             <div class="form-group row mt-2 mb-2">                              
                                 <div class="col-8">
                                     <label class="col-form-label" for="senha">Conf. Senha:</label>
-                                    <input type="password" class="form-control" id="cSenha" placeholder="Confirme a senha" name="senha">
+                                    <input type="password" class="form-control" id="cSenha" placeholder="Confirme a senha"/>
                                 </div>
                             </div>
                         </div>
@@ -87,5 +69,6 @@
                 </div>
             </form>
             <!-- Final do Formulário -->
+    	</div>
     </body>
 </html>

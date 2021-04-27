@@ -1,0 +1,59 @@
+.aulas {
+	margin-top: 30px;
+}
+
+.tamanho-card-detalhamento {
+	width: 75%;
+	height: auto;
+}
+
+.bg-card-detalhamento {
+	background-color: #D9B777;
+}
+
+video {
+	width: 75%;
+	min-width: 500px;
+	height: auto;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #ffffff;
+	border-radius: 5px;
+}
+
+.tamanho-img {
+	margin-left: 5%;
+	width: 5%;
+}
+
+.bg-card {
+	background-color: #353440;
+	color: white;
+}
+
+.margem-box2 {
+	margin-top: 2%;
+	margin: auto auto;
+}
+
+.subtitulo2 {
+	margin-top: -2.5%;
+	padding: 12px;
+	color: white;
+	background-color: #D9B777;
+	text-align: center;
+	width: 300px;
+	font-size: 23px;
+	border-radius: 10px;
+}
+
+.descricao {
+	font-size: 24px;
+	font-weight: 500;
+	font-family: 'Mitr', sans-serif;
+}
+
+.texto-card {
+	width: 500px;
+	text-align: justify;
+}

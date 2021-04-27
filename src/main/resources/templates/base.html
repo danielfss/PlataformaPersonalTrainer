@@ -1,0 +1,117 @@
+<header th:fragment="headerHome">
+	
+		<meta charset="UTF-8">
+		<nav class="navbar navbar-dark bg-dark">
+			<div class="container-fluid">
+	
+				<a class="navbar-brand titulo" th:href="@{/home}"> <img
+					src="https://seeklogo.com/images/U/uol-logo-68F369E089-seeklogo.com.png"
+					class="d-inline-block align-text-top logo"> <span>Compasso</span>
+				</a>
+	
+				<div class="logo-container">
+					<a th:href="@{/home}" class="btn btn-outline-success3">Home</a> <a
+						th:href="@{/sobre}" class="btn btn-outline-success3">Sobre
+						Nós</a> <a th:href="@{/contato}" class="btn btn-outline-success3">Contato</a>
+					<a class="btn btn-outline-success3" th:href="@{/login}">Login</a>
+				</div>
+			</div>
+		</nav>
+	
+</header>
+
+<!-- INICIO HEADER DASHBOARD-->
+<header th:fragment="headerDashboard">
+     <nav class="navbar navbar-dark bg-dark">
+         <div class="container-fluid">
+
+             <a class="navbar-brand titulo" href="/home">
+                 <img src="https://seeklogo.com/images/U/uol-logo-68F369E089-seeklogo.com.png"
+                     class="d-inline-block align-text-top logo">
+                 <span>Compasso</span>
+                 <label for="check">
+                     <i class="fas fa-bars" id="sidebar_btn"></i>
+                 </label>
+             </a>
+
+             <div class="dropdown">
+                 <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle"
+                     id="dropdownUser1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     <img src="https://a-static.mlcdn.com.br/618x463/kit-6-galhos-de-rosas-aveludadas-decora-flores-artificiais/decorafloresartificiais/6639562408/cac5c2c84ea135796a9be967d812bdda.jpg"
+                         alt="mdo" class="rounded-circle me-2" width="32" height="32">
+                     <strong sec:authorize="isAuthenticated()" class="subtitulo">
+						<b><span sec:authentication="name">Usuario</span></b>
+						&nbsp;								
+					</strong>
+                 </a>
+			<form th:action="@{/logout}" method="post">
+                 <ul id="dropdown-menu" class="float-right dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                 
+                     <li><a class="dropdown-item" href="/meu_perfil"><span>Editar Perfil</span></a></li>
+                     <li>
+                         <hr class="dropdown-divider">
+                     </li>
+                     <li><input class="btn btn-outline-success2" type="submit" value="Deslogar" /></li>
+                 </ul>
+                  </form>
+             </div> 
+         </div>
+     </nav>
+</header>
+<!-- FIM HEADER DASHBOARD-->
+
+<!-- INICIO SIDEBAR PERSONAL-->
+<div class="h-100" th:fragment="sidePersonal">
+	
+	<input type="checkbox" id="check">
+	
+	<div class="sidebar" >	          
+	    <a href="/home" class="nav-link text-white"><i class="bi bi-house"></i><span>Home</span></a>
+	    <a href="/personal/dashboard_personal" class="nav-link text-white"><i
+			class="bi bi-graph-up"></i><span>Dashboard</span>
+		</a>                
+	    <a href="/personal/agenda_personal" class="nav-link text-white">
+	        <i class="bi bi-calendar2-plus"></i>
+	        <span>Agendamento</span>
+	    </a>
+	    <a href="/personal/lista_alunos" class="nav-link text-white">
+	        <i class="bi bi-people-fill"></i>
+	        <span>Alunos</span>
+	    </a>
+	    <a href="/lista_treinos" class="nav-link text-white">
+	        <i class="bi bi-collection-play"></i>
+	        <span>Treinos</span>
+	    </a>
+	    <a href="pagamento.html" class="nav-link text-white">
+	        <i class="bi bi-credit-card"></i>
+	        <span>Pagamento</span>
+	    </a>
+	</div>
+</div>
+<!-- FIM SIDEBAR PERSONAL-->
+
+<!-- SIDEBAR ALUNO-->
+<div class="h-100" th:fragment="sideAluno">
+
+	<input type="checkbox" id="check">
+
+    <div class="sidebar">
+        <a href="/home" class="nav-link text-white"><i class="bi bi-house"></i><span>Home</span></a>
+        <a href="/dashboard_aluno" class="nav-link text-white"><i class="bi bi-graph-up"></i><span>Dashboard</span> </a>
+        <a href="/agenda_aluno" class="nav-link text-white">
+            <i class="bi bi-calendar2-plus"></i>
+            <span>Agendamento</span>
+        </a>
+    
+        <a href="/treino_aluno" class="nav-link text-white">
+            <i class="bi bi-collection-play"></i>
+            <span>Treinos</span>
+        </a>
+    
+        <a href="pagamento.html" class="nav-link text-white">
+            <i class="bi bi-credit-card"></i>
+            <span>Pagamento</span>
+        </a>
+    </div>     
+</div>
+<!-- FIM SIDEBAR ALUNO-->

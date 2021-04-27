@@ -1,111 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
-<head>
-    <meta charset="UTF-8">
-    <title>Agenda</title>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
-        integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous">
-        </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
-        integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous">
-        </script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="" th:href="@{/css/styles.css}">
-    <link rel="stylesheet" href="" th:href="@{/css/agenda_prof.css}">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <title>Home</title>	
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
+            integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
+            crossorigin="anonymous"></script>		
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
+            integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
+            crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
+        <link rel="stylesheet" type="text/css" th:href="@{/css/agenda_personal.css}">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+        <style>
+        </style>
+    </head>
 
-<body>
+    <body>
+        <!-- NAVBAR -->
+		<header th:replace="~{base :: headerDashboard}"></header>
+		<!-- FIM NAVBAR -->
 
-    <!-- NAVBAR -->
-    <header>
-        <nav class="navbar navbar-dark bg-dark">
-            <div class="container-fluid">
-
-                <a class="navbar-brand titulo" href="home.html">
-                    <img src="https://seeklogo.com/images/U/uol-logo-68F369E089-seeklogo.com.png"
-                        class="d-inline-block align-text-top logo">
-                    <span>Compasso</span>
-                    <label for="check">
-                        <i class="fas fa-bars" id="sidebar_btn"></i>
-                    </label>
-                </a>
-
-                <div class="dropdown">
-                    <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle"
-                        id="dropdownUser1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="https://a-static.mlcdn.com.br/618x463/kit-6-galhos-de-rosas-aveludadas-decora-flores-artificiais/decorafloresartificiais/6639562408/cac5c2c84ea135796a9be967d812bdda.jpg"
-                            alt="mdo" class="rounded-circle me-2" width="32" height="32">
-                        <strong>Perfil</strong>
-                    </a>
-                    <ul class="float-right dropdown-menu dropdown-menu-dark text-small shadow"
-                        aria-labelledby="dropdownUser1">
-                        <li><a class="dropdown-item" href="minha_conta.html"><span>Editar Perfil</span></a></li>
-                        <li><a class="dropdown-item" href="#"><span>Configurações</span></a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#"><span>Logout</span></a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <!-- Final Navbar -->
-
-    <main>
-        <input type="checkbox" id="check">
-
-        <!-- Início Sidebar -->
-        <div class="sidebar">
-            <a href="home.html" class="nav-link text-white"><i class="bi bi-house"></i><span>Home</span></a>
-            <a href="dashboard_prof.html" class="nav-link text-white"><i
-                    class="bi bi-graph-up"></i><span>Dashboard</span> </a>
-            <a href="agenda_prof.html" class="nav-link text-white">
-                <i class="bi bi-calendar2-plus"></i>
-                <span>Agendamento</span>
-            </a>
-            <a href="lista_alunos.html" class="nav-link text-white">
-                <i class="bi bi-people-fill"></i>
-                <span>Alunos</span>
-            </a>
-            <a href="" class="nav-link text-white">
-                <i class="bi bi-collection-play"></i>
-                <span>Videos</span>
-            </a>
-
-            <a href="#" class="nav-link text-white">
-                <i class="bi bi-credit-card"></i>
-                <span>Pagamento</span>
-            </a>
-        </div>
-        <!-- Final Sidebar -->
-
-        <!-- Início Agenda -->
-        <div class="container">
-            <div class="row">
-                <div id="calendario">
-                    <button class="btn btn-outline-success2" data-toggle="modal" data-target="#modalAgendamento">
-                        Novo horário
-                    </button>
-                </div>
+		<main>
+	
+			<div class="sidePersonal" th:if="${#authorization.expression('hasAuthority(''PERSONAL'')')}" >
+				<div th:replace="~{base :: sidePersonal}"></div>
+			</div>
+            
+            <!-- Início Agenda -->
+        	<div class="container mt-3">
+            	<div class="row">
+                
                 <!-- INICIO MODAL DE AGENDAMENTO DO ALUNO -->
                 <div class="modal fade" id="modalAgendamento" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header text-center">
-                                <h4 class="modal-title w-100 font-weight-bold">Novo horário</h4>
-                                <button type="button" class="btn btn-outline-success5" data-dismiss="modal"
-                                    aria-label="Close">
-                                    <span aria-hidden="true">&times;</span> <!-- BOTÃO DE FECHAR -->
-                                </button>
+                                <h4 class="modal-title w-100 font-weight-bold">Novo horário</h4>                                
                             </div>
                             <div class="modal-body mx-3">
                                 <form id="formAgendamento" class="form-control" name="formAgendamento"
@@ -135,7 +75,7 @@
                                         Agendar
                                     </button>
                                 </a>
-                                <button type="button" class="btn btn-outline-success2" data-dismiss="modal">
+                                <button type="button" class="btn btn-outline-success8" data-dismiss="modal">
                                     Close
                                 </button>
                             </div>
@@ -256,10 +196,10 @@
             <div class="row">
                 <!-- INÍCIO AGENDA -->
 
-                <div class="container">
+                <div class="containerAgenda">
                     <div class="col-lg-11" id="Radios">
 
-                        <div class=" border border-secondary-3 rounded bg-box">
+                        <div class="border border-secondary-2 rounded bg-box">
                             <div>
                                 <div class=" d-flex justify-content-center">
                                     <h3 class="subtitulo2 mb-4">Agenda</h3>
@@ -281,9 +221,7 @@
 
                                 <ul class="list-group list-group-horizontal lista-agenda mb-0">
                                     <li class="list-group-item listagem-agendamento b-0">
-                                    <li class="list-group-item text-center listagem-agenda-nome"><img
-                                            src="https://i.pinimg.com/originals/be/d7/ba/bed7baed2ba5c9895d0f854ba32c0a42.jpg"
-                                            class="imagem-agenda" />
+                                    <li class="list-group-item text-center listagem-agenda-nome">
                                         <spam>José de Almeida</spam>
                                     </li>
                                     <li class="list-group-item text-center listagem-agenda-horario">15/04/2021 - 17:30
@@ -304,9 +242,7 @@
                                 <div class="linha mb-3"></div>
                                 <ul class="list-group list-group-horizontal lista-agenda mb-0">
                                     <li class="list-group-item listagem-agendamento b-0">
-                                    <li class="list-group-item text-center listagem-agenda-nome"><img
-                                            src="https://i.pinimg.com/474x/ed/be/34/edbe3429d0912ed40a77fdf559b7384d.jpg"
-                                            class="imagem-agenda" />
+                                    <li class="list-group-item text-center listagem-agenda-nome">
                                         <spam>Maria da Conceição</spam>
                                     </li>
                                     <li class="list-group-item text-center listagem-agenda-horario">16/04/2021 - 13:30
@@ -325,9 +261,13 @@
 
                         </div>
                     </div>
-                </div> <!-- FIM AGENDA -->
-            </div>
-        </div>
+                    <div id="calendario text-center" class="mt-2">
+                        <button class="btn btn-outline-success2" data-toggle="modal" data-target="#modalAgendamento">
+                            Novo horário
+                        </button>
+                    </div>
+                </div> <!-- FIM AGENDA --> 
+            </div>          
         </div>
     </main>
 

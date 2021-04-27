@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
     <head>
         <meta charset="UTF-8">
@@ -14,63 +13,52 @@
             integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="" th:href="@{/css/home.css}">
-        <link rel="stylesheet" href="" th:href="@{/css/login.css}">
+        <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}">
+        <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     </head>
 
     <body>
-        <!-- NAVBAR -->
-        <header>
-            <nav class="navbar navbar-dark bg-dark">
-                <div class="container-fluid">
-                    
-                    <a class="navbar-brand titulo" href="home.html">
-                        <img src="https://seeklogo.com/images/U/uol-logo-68F369E089-seeklogo.com.png" class="d-inline-block align-text-top logo">
-                        <span>Compasso</span>
-                    </a>
-                    
-                    <div class="logo-container">
-                        <a href="home.html" class="btn btn-outline-success3" >Home</a>
-                        <a href="sobre_nos.html" class="btn btn-outline-success3" >Sobre Nós</a>
-                        <a href="contato.html" class="btn btn-outline-success3" >Contato</a>
-                        <a class="btn btn-outline-success3" th:href="@{/login}">Login</a>
-                    </div>
-                </div>
-            </nav>
-        </header>
+         <!-- NAVBAR -->
+        <header th:replace="~{base :: headerHome}"></header>
         <!-- FIM NAVBAR -->
 
         <!-- Início do Formulário -->
         <div class="container Forms">
-            <form id="formDados" name="formDados" action="minha_conta.html">
+            <form th:action="@{/login}" method="post" id="formDados" name="formDados" >
                 <div class="border border-secondary-3 rounded mt-1">
                     <div class="container text-center">
                         <h3 class="subtitulo">Login</h3>
+                        
+                        <div th:if="${param.error}" class="alert alert-error">Invalid username and password.</div>
+						<div th:if="${param.logout}" class="alert alert-success">you have been logged out.</div>
+						
                         <div class="form-group m-3">
                             <div class="form-group row mt-2 mb-2">
                                 <label class="col-form-label col-2" for="cpf">Email:</label>
                                 <div class="col-8">
-                                <input type="email" class="form-control" id="email" placeholder="Insira o email" name="email">
+                                <input type="email" class="form-control" id="email" placeholder="Insira o email" name="email" required autofocus>
                                 </div>
                             </div>
                             <div class="form-group row mt-2 mb-2">
                                 <label class="col-form-label col-2" for="senha">Senha:</label>
-                                <div class="col-8">
-                                <input type="senha" class="form-control" id="senha" placeholder="Insira a senha" name="telefone">
+                                <div class="col-8">                            
+                                	<p>
+										<input type="password" name="password" class="form-control" placeholder="Senha" required />
+									</p>
                                 </div>
                             </div>
                         </div>
-                        <a href="minha_conta.html"><button type="submit" class="btn btn-outline-success2 mb-4">Entrar</button> </a>
+                        <button type="submit" class="btn btn-outline-success2 mb-4">Entrar</button>
                         <div id="noCad">
-                            <p>Se não possui cadastro <a href="cadastro.html">Click aqui!</a></p>
+                            <p>Se não possui cadastro <a th:href="@{/cadastro}">Click aqui!</a></p>
                         </div>
                     </div>
                 </div>
             </form>
-        </div>
-        <!-- Final do Formulário -->
+            <!-- Final do Formulário -->
+    	</div>
     </body>
 </html>
