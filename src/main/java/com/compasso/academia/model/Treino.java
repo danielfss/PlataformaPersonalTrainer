@@ -2,14 +2,19 @@ package com.compasso.academia.model;
 
 import java.io.Serializable;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -36,8 +41,13 @@ public class Treino implements Serializable{
     @Column(nullable = true)
     private URL video;
     
-    @OneToMany
-    private List<Usuario> usuarios;
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(
+			name = "treino_aluno",
+			joinColumns = @JoinColumn(name = "treino_id"),
+			inverseJoinColumns = @JoinColumn(name = "aluno_id")		
+			)
+    private List<Usuario> alunos = new ArrayList<>();
     
     public Long getId() {
         return id;
@@ -78,14 +88,20 @@ public class Treino implements Serializable{
 	public void setVideo(URL video) {
 		this.video = video;
 	}
-
-	public List<Usuario> getUsuarios() {
-		return usuarios;
+	
+	public void addTreinos(Usuario usuarios) {
+		this.alunos.add(usuarios);
+		
 	}
 
-	public void setUsuarios(List<Usuario> usuarios) {
-		this.usuarios = usuarios;
+	public List<Usuario> getAlunos() {
+		return alunos;
 	}
+
+	public void setAlunos(List<Usuario> alunos) {
+		this.alunos = alunos;
+	}
+	
 	
 }
 

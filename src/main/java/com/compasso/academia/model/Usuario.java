@@ -1,5 +1,6 @@
 package com.compasso.academia.model;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -14,8 +15,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -51,8 +50,8 @@ public class Usuario {
 			)
 	private Set<Role> roles = new HashSet<>();
 	
-	@OneToMany //(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private List<Treino> treinos;
+	@ManyToMany (cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "alunos") 
+	private List<Treino> treinos= new ArrayList<>();
 
 	
 	public Long getId() {
@@ -101,12 +100,13 @@ public class Usuario {
 	public void addRole(Role role) {
 		this.roles.add(role);
 	}
-
-	public List<Treino> getTreinos() { return treinos; } 
 	
-	public void
-	  setTreinos(List<Treino> treinos) { this.treinos = treinos; }
-	
+	public List<Treino> getTreinos() {
+		return treinos;
+	}
+	public void setTreinos(List<Treino> treinos) {
+		this.treinos = treinos;
+	}
 	public void addTreinos(Treino treino) {
 		this.treinos.add(treino);
 		
