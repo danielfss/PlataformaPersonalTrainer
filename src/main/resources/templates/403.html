@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Acesso Negado</title>
+</head>
+<body>
+	<h2>Desculpa, Erro ao acessar a página.</h2>
+	<div>
+        <form th:action="@{/logout}" method="post">
+        	<div sec:authorize="isAuthenticated()" class="subtitulo">
+                Bem Vindo(a)! <b><span sec:authentication="name">Usuario</span></b>
+                &nbsp;
+                <span sec:authentication="principal.authorities">Roles</span>
+            </div>
+            <input class="btn btn-primary" type="submit" value="Sair" />
+        </form>
+    </div>
+</body>
+</html>

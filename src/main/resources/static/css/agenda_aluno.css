@@ -1,84 +1,47 @@
-main {
-  display: flex;
+/*------------------------------- FORM DENTRO DO MODAL ------------------------------------------ */
+#formAgendamento {
+	max-width: 600px;
+	margin: 0 auto;
+	background-color: #353440;
+	border-radius: 5px;
 }
+
+.form-group label {
+	color: #BF9B6F;
+	font-weight: 500;
+	margin-right: 20px;
+}
+
 /*------------------------------- FORM DENTRO DO MODAL ------------------------------------------ */
 
-#formAgendamento {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: #353440;
-    border-radius: 5px;
-  }
-  
-  .form-group label {
-    color: #BF9B6F;
-    font-weight: 500;
-    margin-right: 20px;
-  }
-  
-  .btn-default {
-    margin-top: 4px;
-  }
-  
-  .btn-outline-success2 {
-    text-align: right;
-    color: #d9b777;
-    border-color: #d9b777;
-  }
-  
-  .btn-outline-success2:hover {
-    background: #d9b777;
-    border-color: #d9b777;
-  }
-  
-  /*------------------------------- FORM DENTRO DO MODAL ------------------------------------------ */
-  
-  
-  /* ------------------------------------------  MODAL ------------------------------------------ */
-  
-  .modal-header{
-      background: #D9B777;
-      border-color: white;
-      border-radius:6px;
-      border-style: none;
-  }
-  
-  .modal h4{
-      font-family: 'Mitr', sans-serif;
-      color: white;
-      font-size: 36px;
-  }
-  
-  .modal-content{
-      background: #353440;
-  }
-  
-  .form-group small{
-      color: #D9B777;
-  }
-  
-  .btn-outline-success5{
-      text-align: center;
-      color: white;
-      border-color: white;
-      width: 50px;
-      background: #353440;
-    }
-    
-    .btn-outline-success5:hover{
-      background: #D9B777;
-      border-color: #D9B777;
-    }
-  
-  .dropdownProf{
-      margin-top: 160px;
-  }
-  
-  .dropdownProf a{
-    color: white;
-    text-decoration: none;
-  }
-  /* ------------------------------------------  MODAL ------------------------------------------ */
-  
-  
-  
+/* ------------------------------------------  MODAL ------------------------------------------ */
+.modal-header {
+	background: #D9B777;
+	border-color: white;
+	border-radius: 6px;
+	border-style: none;
+}
+
+.modal h4 {
+	font-family: 'Mitr', sans-serif;
+	color: white;
+	font-size: 36px;
+}
+
+.modal-content {
+	background: #353440;
+}
+
+.form-group small {
+	color: #D9B777;
+}
+
+.dropdownProf {
+	margin-top: 160px;
+}
+
+.dropdownProf a {
+	color: white;
+	text-decoration: none;
+}
+/* ------------------------------------------  MODAL ------------------------------------------ */

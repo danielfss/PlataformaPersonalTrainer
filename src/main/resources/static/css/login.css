@@ -1,55 +1,42 @@
-.Forms{
-    margin-top: 60px;
-    align-items: center;
-  }
-  
-  #formDados{
-    max-width: 500px;
-    margin: 0 auto;
-    background-color: #353440;
-    border-radius: 5px;
-    margin-top: 200px;
-  }
+.Forms {
+	margin-top: 60px;
+	align-items: center;
+}
 
-  #noCad{
-    font-family: 'Mitr', sans-serif;
-    color: white;
-  }
+#formDados {
+	max-width: 500px;
+	margin: 0 auto;
+	background-color: #353440;
+	border-radius: 5px;
+	margin-top: 200px;
+}
 
-  #noCad a{
-    font-family: 'Mitr', sans-serif;
-    color: #D9B777;
-  }
+#noCad {
+	font-family: 'Mitr', sans-serif;
+	color: white;
+}
 
-  .form-group label{
-    color: white;
-    margin-right: 3px;
-  }
+#noCad a {
+	font-family: 'Mitr', sans-serif;
+	color: #D9B777;
+}
 
-  .btn-outline-success2{
-    text-align: center;
-    color: #D9B777;
-    border-color: #D9B777;
-    width: 100px;
-    margin-top: 15px;
-  }
-  
-  .btn-outline-success2:hover{
-    background: #D9B777;
-    border-color: #D9B777;
-  }
+.form-group label {
+	color: white;
+	margin-right: 3px;
+}
 
-  .subtitulo {
-    border: none;
-    outline: 0;
-    padding: 12px;
-    color: white;
-    background-color: #D9B777;
-    text-align: center;
-    width: 300px;
-    margin-left: 90px;
-    margin-top: -24px;
-    font-size: 23px;
-    border-radius: 10px;
-    margin-bottom: 40px;
-  }
+.subtitulo {
+	border: none;
+	outline: 0;
+	padding: 12px;
+	color: white;
+	background-color: #D9B777;
+	text-align: center;
+	width: 300px;
+	margin-left: 90px;
+	margin-top: -24px;
+	font-size: 23px;
+	border-radius: 10px;
+	margin-bottom: 40px;
+}
