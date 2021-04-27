@@ -13,9 +13,11 @@
 					<a th:href="@{/home}" class="btn btn-outline-success3">Home</a> <a
 						th:href="@{/sobre}" class="btn btn-outline-success3">Sobre
 						Nós</a> <a th:href="@{/contato}" class="btn btn-outline-success3">Contato</a>
-					<a class="btn btn-outline-success3" th:href="@{/login}">Login</a>
+					<a class="btn btn-outline-success3" sec:authorize="!isAuthenticated()" th:href="@{/login}">Login</a>
+					<a onclick="document.querySelector('#form-login').submit()" class="btn btn-outline-success3" sec:authorize="isAuthenticated()" href="#" >Logout</a>
 				</div>
 			</div>
+			<form id="form-login" th:action="@{/logout}" method="post"></form>
 		</nav>
 	
 </header>
