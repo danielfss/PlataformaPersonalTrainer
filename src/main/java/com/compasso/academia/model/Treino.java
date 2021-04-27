@@ -76,6 +76,11 @@ public class Treino implements Serializable{
 	public void setVideo(URL video) {
 		this.video = video;
 	}
+	
+	public void addTreinos(Usuario usuarios) {
+		this.usuario.add(usuarios);
+		
+	}
 
     public List<Usuario> getUsuario() {
         return usuario;
