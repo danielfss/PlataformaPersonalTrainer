@@ -1,5 +1,5 @@
 package com.compasso.academia.model;
-
+/*
 import java.util.List;
 
 import javax.persistence.Column;
@@ -81,3 +81,4 @@ public class Treino
         this.usuario = usuario;
     }
 }
+*/

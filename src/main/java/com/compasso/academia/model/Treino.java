@@ -1,4 +1,4 @@
-package com.compasso.personaltrainer.model;
+package com.compasso.academia.model;
 
 import java.io.Serializable;
 import java.net.URL;

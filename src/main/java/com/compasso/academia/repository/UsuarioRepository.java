@@ -1,12 +1,12 @@
-package com.compasso.personaltrainer.repository;
+package com.compasso.academia.repository;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import com.compasso.personaltrainer.model.Treino;
-import com.compasso.personaltrainer.model.Usuario;
+import com.compasso.academia.model.Treino;
+import com.compasso.academia.model.Usuario;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 	

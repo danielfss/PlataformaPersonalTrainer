@@ -1,4 +1,4 @@
-package com.compasso.personaltrainer.controller;
+package com.compasso.academia.controller;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.compasso.personaltrainer.model.Usuario;
-import com.compasso.personaltrainer.service.AppService;
+import com.compasso.academia.model.Usuario;
+import com.compasso.academia.service.AppService;
 
 @Controller
 public class DashboardController {

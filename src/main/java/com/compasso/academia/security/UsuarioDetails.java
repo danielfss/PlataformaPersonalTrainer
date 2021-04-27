@@ -1,4 +1,4 @@
-package com.compasso.personaltrainer.security;
+package com.compasso.academia.security;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -9,8 +9,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.compasso.personaltrainer.model.Role;
-import com.compasso.personaltrainer.model.Usuario;
+import com.compasso.academia.model.Role;
+import com.compasso.academia.model.Usuario;
 
 public class UsuarioDetails implements UserDetails {
 

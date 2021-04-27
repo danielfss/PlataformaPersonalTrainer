@@ -1,13 +1,13 @@
-package com.compasso.personaltrainer.service;
+package com.compasso.academia.service;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.compasso.personaltrainer.model.Treino;
-import com.compasso.personaltrainer.model.Usuario;
-import com.compasso.personaltrainer.repository.TreinoRepository;
-import com.compasso.personaltrainer.repository.UsuarioRepository;
+import com.compasso.academia.model.Treino;
+import com.compasso.academia.model.Usuario;
+import com.compasso.academia.repository.TreinoRepository;
+import com.compasso.academia.repository.UsuarioRepository;
 
 @Service
 public class AppService {

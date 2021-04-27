@@ -1,4 +1,4 @@
-package com.compasso.personaltrainer.security;
+package com.compasso.academia.security;
 
 
 
@@ -15,7 +15,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import com.compasso.personaltrainer.service.UsuarioDetailsService;
+import com.compasso.academia.service.UsuarioDetailsService;
 
 
 @Configuration

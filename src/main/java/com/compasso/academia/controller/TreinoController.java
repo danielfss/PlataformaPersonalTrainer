@@ -1,4 +1,4 @@
-package com.compasso.personaltrainer.controller;
+package com.compasso.academia.controller;
 
 import java.util.List;
 
@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.compasso.personaltrainer.model.Treino;
-import com.compasso.personaltrainer.model.Usuario;
-import com.compasso.personaltrainer.repository.TreinoRepository;
-import com.compasso.personaltrainer.repository.UsuarioRepository;
-import com.compasso.personaltrainer.service.AppService;
+import com.compasso.academia.model.Treino;
+import com.compasso.academia.model.Usuario;
+import com.compasso.academia.repository.TreinoRepository;
+import com.compasso.academia.repository.UsuarioRepository;
+import com.compasso.academia.service.AppService;
 
 @Controller
 public class TreinoController {

@@ -1,13 +1,13 @@
-package com.compasso.personaltrainer.service;
+package com.compasso.academia.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-import com.compasso.personaltrainer.model.Usuario;
-import com.compasso.personaltrainer.repository.UsuarioRepository;
-import com.compasso.personaltrainer.security.UsuarioDetails;
+import com.compasso.academia.model.Usuario;
+import com.compasso.academia.repository.UsuarioRepository;
+import com.compasso.academia.security.UsuarioDetails;
 
 public class UsuarioDetailsService implements UserDetailsService {
 

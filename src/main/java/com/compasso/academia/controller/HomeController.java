@@ -1,4 +1,4 @@
-package com.compasso.personaltrainer.controller;
+package com.compasso.academia.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.compasso.personaltrainer.model.Role;
-import com.compasso.personaltrainer.model.Usuario;
-import com.compasso.personaltrainer.repository.RoleRepository;
-import com.compasso.personaltrainer.service.AppService;
+import com.compasso.academia.model.Role;
+import com.compasso.academia.model.Usuario;
+import com.compasso.academia.repository.RoleRepository;
+import com.compasso.academia.service.AppService;
 
 @Controller
 public class HomeController {

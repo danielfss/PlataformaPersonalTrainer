@@ -1,4 +1,4 @@
-package com.compasso.personaltrainer.controller;
+package com.compasso.academia.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.compasso.personaltrainer.model.Usuario;
-import com.compasso.personaltrainer.repository.UsuarioRepository;
-import com.compasso.personaltrainer.security.UsuarioDetails;
-import com.compasso.personaltrainer.service.AppService;
+import com.compasso.academia.model.Usuario;
+import com.compasso.academia.repository.UsuarioRepository;
+import com.compasso.academia.security.UsuarioDetails;
+import com.compasso.academia.service.AppService;
 
 @Controller
 public class PerfilController {

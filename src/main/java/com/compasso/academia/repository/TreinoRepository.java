@@ -1,8 +1,8 @@
-package com.compasso.personaltrainer.repository;
+package com.compasso.academia.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.compasso.personaltrainer.model.Treino;
+import com.compasso.academia.model.Treino;
 
 
 public interface TreinoRepository extends JpaRepository<Treino, Long> {

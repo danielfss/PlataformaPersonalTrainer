@@ -1,4 +1,4 @@
-package com.compasso.personaltrainer.security;
+package com.compasso.academia.security;
 
 import java.io.IOException;
 import java.util.Set;
