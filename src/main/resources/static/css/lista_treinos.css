@@ -1,0 +1,20 @@
+.tableTreino td:first-child {
+	letter-spacing: 0.15em;
+	border-collapse: collapse;
+	width: 10%;
+	table-layout: fixed;
+	text-align: center;
+}
+
+.tableTreino a {
+	text-align: center
+}
+
+.text-decor {
+	text-decoration: none;
+	color: white;
+}
+
+.text-decor:hover {
+	color: #D9B777
+}

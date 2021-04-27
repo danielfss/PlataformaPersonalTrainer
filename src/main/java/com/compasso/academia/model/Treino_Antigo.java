@@ -1,7 +1,5 @@
 package com.compasso.academia.model;
-
-import java.io.Serializable;
-import java.net.URL;
+/*
 import java.util.List;
 
 import javax.persistence.Column;
@@ -9,36 +7,32 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "Treinos")
-public class Treino implements Serializable{
-	
-	private static final long serialVersionUID = 1L;
-	
+public class Treino 
+{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
-    @Column(nullable = true)
     private String titulo;
-    
     @Column(nullable = true)
     private String descricao;
 
-
-    @Column(nullable = true)
-    private URL arquivo;
-
-
-    @Column(nullable = true)
-    private URL video;
-    
     @OneToMany
-    private List<Usuario> usuarios;
-    
+    @Column(nullable = true)
+    private List<Arquivo> arquivo;
+
+    @OneToMany
+    @Column(nullable = true)
+    private List<Video> video;
+
+    @ManyToMany
+    private List<Usuario> usuario;
+
     public Long getId() {
         return id;
     }
@@ -63,29 +57,28 @@ public class Treino implements Serializable{
         this.descricao = descricao;
     }
 
-	public URL getArquivo() {
-		return arquivo;
-	}
+    public List<Arquivo> getArquivo() {
+        return arquivo;
+    }
 
-	public void setArquivo(URL arquivo) {
-		this.arquivo = arquivo;
-	}
+    public void setArquivo(List<Arquivo> arquivo) {
+        this.arquivo = arquivo;
+    }
 
-	public URL getVideo() {
-		return video;
-	}
+    public List<Video> getVideo() {
+        return video;
+    }
 
-	public void setVideo(URL video) {
-		this.video = video;
-	}
+    public void setVideo(List<Video> video) {
+        this.video = video;
+    }
 
-	public List<Usuario> getUsuarios() {
-		return usuarios;
-	}
+    public List<Usuario> getUsuario() {
+        return usuario;
+    }
 
-	public void setUsuarios(List<Usuario> usuarios) {
-		this.usuarios = usuarios;
-	}
-	
+    public void setUsuario(List<Usuario> usuario) {
+        this.usuario = usuario;
+    }
 }
-
+*/

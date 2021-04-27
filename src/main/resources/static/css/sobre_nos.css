@@ -1,0 +1,39 @@
+
+
+/*------------------------------- Início Conteúdo ------------------------------------------ */
+.content{
+    padding-top: 140px;
+    text-align: center;
+}
+
+.content span{
+    font-size: 50px;
+    color: white;
+    font-family: arial black;
+}
+
+.content ul li{
+    font-size: 24px;
+    color: #D9B777;
+    background: transparent;
+    text-align: left;
+    margin-left: 35%;
+    font-family: 'Mitr', sans-serif;
+}
+
+.btn-outline-success4{
+    color: white;
+    font-size: 30px;
+    font-family: 'Mitr', sans-serif;
+    border-color: white;
+  }
+  
+  .btn-outline-success4:hover{
+    background: transparent;
+    border-color: white;
+    text-decoration: none;
+    color: #D9B777;
+  }
+
+
+/*------------------------------- Final Conteúdo ------------------------------------------ */
