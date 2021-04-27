@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Nossos ignore ###
+*.properties
+src/main/resources/application.properties
