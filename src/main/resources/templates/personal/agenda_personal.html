@@ -116,109 +116,21 @@
 								</div>
 							</div>
 
-							<ul
-								class="list-group list-group-horizontal lista-agendamento mb-3">
-								<li class="list-group-item listagem-agendamento">
-									<button type="button"
-										class="btn btn-outline-success5 bt-tamanho p-0" aria-label="x">
+							<ul class="list-group list-group-horizontal lista-agendamento mb-3">
+								<li class="list-group-item listagem-agendamento d-flex" th:each="aula : ${aulas}">
+									<button type="button" class="btn btn-outline-success5 bt-tamanho p-0" aria-label="x">
 										<span aria-hidden="true">x</span>
 										<!-- BOTÃO DE FECHAR -->
-									</button> 13/04/2021 - 13:30
+									</button>
+									<p th:text="${#temporals.format(aula.disponibilidade, 'dd/MM/yyyy HH:mm')}"></p>
 								</li>
-								<li class="list-group-item listagem-agendamento">
-									<button type="button"
-										class="btn btn-outline-success5 bt-tamanho p-0" aria-label="x">
-										<span aria-hidden="true">x</span>
-										<!-- BOTÃO DE FECHAR -->
-									</button> 14/04/2021 - 15:30
-								</li>
-								<li class="list-group-item listagem-agendamento">
-									<button type="button"
-										class="btn btn-outline-success5 bt-tamanho p-0" aria-label="x">
-										<span aria-hidden="true">x</span>
-										<!-- BOTÃO DE FECHAR -->
-									</button> 15/04/2021 - 13:30
-								</li>
-								<li class="list-group-item listagem-agendamento">
-									<button type="button"
-										class="btn btn-outline-success5 bt-tamanho p-0" aria-label="x">
-										<span aria-hidden="true">x</span>
-										<!-- BOTÃO DE FECHAR -->
-									</button> 16/04/2021 - 13:30
-								</li>
-								<li class="list-group-item listagem-agendamento">
-									<button type="button"
-										class="btn btn-outline-success5 bt-tamanho p-0" aria-label="x">
-										<span aria-hidden="true">x</span>
-										<!-- BOTÃO DE FECHAR -->
-									</button> 15/04/2021 - 17:30
-								</li>
-
 							</ul>
 						</div>
 					</div>
 					<!-- FINAL HORÁRIOS DISPONÍVEIS -->
 				</div>
 			</div>
-			<!-- INICIO MODAL-FADE -->
-			<div class="modal fade" id="modalLoginForm" tabindex="-1"
-				role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content">
-						<div class="modal-header text-center">
-							<h4 class="modal-title w-100">Novo Treino</h4>
-							<button type="button" class="btn btn-outline-success5"
-								data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-								<!-- BOTÃO DE FECHAR -->
-							</button>
-						</div>
-						<div class="modal-body mx-3">
-							<div class="md-form mb-0 form-group">
-								<label data-error="wrong" data-success="right"
-									for="defaultForm-linkvideo">Título:</label> <input
-									id="defaultForm-desc" class="form-control validate"
-									placeholder="Titulo do treino"></input> <label
-									data-error="wrong" data-success="right" for="defaultForm-desc"></label>
-							</div>
-							<div class="md-form mb-4 form-group">
 
-								<label data-error="wrong" data-success="right"
-									for="defaultForm-linkvideo">Link do Vídeo:</label> <input
-									type="text" id="defaultForm-linkvideo"
-									class="form-control validate"
-									placeholder="Adicione o link do vídeo">
-							</div>
-
-							<div class="md-form mb-3 form-group">
-								<label data-error="wrong" data-success="right"
-									for="defaultForm-linkvideo">Upload:</label> <input type="file"
-									name="upload" accept="application/pdf" id="defaultForm-file"
-									class="form-control validate"> <small>Adicione
-									um arquivo em formato PDF.</small> <label data-error="wrong"
-									data-success="right" for="defaultForm-file"></label>
-							</div>
-
-							<div class="md-form mb-0 form-group">
-								<label data-error="wrong" data-success="right"
-									for="defaultForm-linkvideo">Descrição:</label>
-								<textarea id="defaultForm-desc" class="form-control validate"
-									placeholder="Descrição do treino"></textarea>
-								<label data-error="wrong" data-success="right"
-									for="defaultForm-desc"></label>
-							</div>
-						</div>
-
-						<div class="modal-footer d-flex justify-content-center form-group">
-							<button class="btn btn-outline-success2">Enviar</button>
-							<button type="button" class="btn btn-outline-success2"
-								data-dismiss="modal">Close</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- FIM MODAL-FADE -->
-			<div class="container"></div>
 			<div class="row">
 				<!-- INÍCIO AGENDA -->
 
@@ -239,18 +151,40 @@
 								<li class="list-group-item text-center agenda-horario">Horário</li>
 
 								<li class="list-group-item text-center agenda-telefone">Telefone</li>
-								<li class="list-group-item text-center agenda-mensagem">Mensagem</li>
-								<li class="list-group-item text-center agenda-novo-treino">Novo
-									Treino</li>
-								</li>
+<!-- 								<li class="list-group-item text-center agenda-mensagem">Mensagem</li>
+								<li class="list-group-item text-center agenda-novo-treino">Novo Treino</li> -->
+
 							</ul>
+							
+							<div>
+								<ul class="list-group list-group-horizontal lista-agenda mb-0" th:each="aula : ${aulas}">
+									<li class="list-group-item listagem-agendamento b-0">
+									<li class="list-group-item text-center listagem-agenda-nome" th:text="${aula.aluno.nome}">
+										<span>José de Almeida</span>
+									</li>
+									<li class="list-group-item text-center listagem-agenda-horario" th:text="${#temporals.format(aula.disponibilidade, 'dd/MM/yyyy HH:mm')}">
+										15/04/2021- 17:30
+									</li>
+									<li
+										class="list-group-item text-center listagem-agenda-telefone" th:text="${aula.aluno.telefone}">4002-8922
+										<i class="bi bi-chat-dots"></i>
+									</li>
+<!-- 									<li class="list-group-item text-center listagem-agenda-mensagem">Preciso
+										exercitar minhas pernas</li>
+									<li class="list-group-item text-center listagem-agenda-novo-treino">
+										<a href="#" class=" text-white" data-toggle="modal" data-target="#modalLoginForm">
+											<i class="bi bi-cloud-upload"></i>
+										</a>
+									</li> -->
+								</ul>
+							</div>
 							<div>
 								<div class="linha mb-3"></div>
 
 								<ul class="list-group list-group-horizontal lista-agenda mb-0">
 									<li class="list-group-item listagem-agendamento b-0">
 									<li class="list-group-item text-center listagem-agenda-nome">
-										<spam>José de Almeida</spam>
+										<span>José de Almeida</span>
 									</li>
 									<li class="list-group-item text-center listagem-agenda-horario">15/04/2021
 										- 17:30</li>
@@ -275,7 +209,7 @@
 								<ul class="list-group list-group-horizontal lista-agenda mb-0">
 									<li class="list-group-item listagem-agendamento b-0">
 									<li class="list-group-item text-center listagem-agenda-nome">
-										<spam>Maria da Conceição</spam>
+										<span>Maria da Conceição</span>
 									</li>
 									<li class="list-group-item text-center listagem-agenda-horario">16/04/2021
 										- 13:30</li>
@@ -297,10 +231,6 @@
 							</div>
 
 						</div>
-					</div>
-					<div id="calendario text-center" class="mt-2">
-						<button class="btn btn-outline-success2" data-toggle="modal"
-							data-target="#modalAgendamento">Novo horário</button>
 					</div>
 				</div>
 				<!-- FIM AGENDA -->

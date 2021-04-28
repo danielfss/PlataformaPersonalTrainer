@@ -33,7 +33,9 @@ public class AulaController {
 	}
 
 	@GetMapping("/personal/agenda_personal")
-	public String viewAgendaPersonal(AulaDto aulaDto) {
+	public String viewAgendaPersonal(AulaDto aulaDto, Model model) {
+		List<Aula> aulas = service.getAulas();
+		model.addAttribute("aulas", aulas);
 		return "/personal/agenda_personal";
 	}
 
