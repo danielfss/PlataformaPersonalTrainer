@@ -1,5 +1,8 @@
 package com.compasso.academia;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,44 +12,23 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Rollback;
 
 import com.compasso.academia.model.Role;
-import com.compasso.academia.model.Usuario;
 import com.compasso.academia.repository.RoleRepository;
-import com.compasso.academia.repository.UsuarioRepository;
-
-
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = Replace.NONE)
 @Rollback(false)
-class AcademiaApplicationTests {
-
-	@Autowired 
-	RoleRepository roleRepo;
+public class RoleRepositoryTests {
+	@Autowired RoleRepository repo;
 	
-	@Autowired 
-	UsuarioRepository repoUs;
-	
-	
-    @Test
-    void contextLoads() {
-    }
-
-
-
-@Test
-public void testAddRoleToNewUser() { 
-	Usuario usuario = new Usuario();
-	usuario.setNome("al33");
-	usuario.setEmail("jo@email.com");
-	usuario.setSenha("87654321");
-	usuario.setTelefone("719000000");
-	usuario.setEnabled(true);
-  
-	Role role = roleRepo.findByName("ALUNO"); 
-  
-	usuario.addRoles(role);
-  
-	repoUs.save(usuario);
-
+	@Test
+	public void testCreateRoles() {
+		Role user = new Role("ALUNO");
+		Role admin = new Role("PERSONAL");
+		
+		repo.saveAll(List.of(user, admin));
+		
+		List<Role> listRoles = repo.findAll();
+		
+		assertThat(listRoles.size()).isEqualTo(2);
 	}
 }

@@ -7,6 +7,6 @@ import com.compasso.academia.model.Role;
 
 @Repository
 public interface RoleRepository extends JpaRepository<Role, Long> {
-	@Query("SELECT r FROM Role r WHERE r.name = ?1")
+	@Query("SELECT r FROM Role r WHERE r.nome = ?1")
 	public Role findByName(String name);
 }

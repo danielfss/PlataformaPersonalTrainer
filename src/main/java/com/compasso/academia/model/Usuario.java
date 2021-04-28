@@ -1,6 +1,7 @@
 package com.compasso.academia.model;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -37,7 +38,7 @@ public class Usuario {
 	private boolean enabled;
 	
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private List<Role> roles;
+	private Set<Role> roles = new HashSet<Role>();
 	
 	public Long getId() {
 		return id;
@@ -86,15 +87,15 @@ public class Usuario {
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
-
-	public List<Role> getRoles() {
+	
+	public Set<Role> getRoles() {
 		return roles;
 	}
 
-	public void setRoles(List<Role> role) {
-		this.roles = role;
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
 	}
-	
+
 	public void addRoles(Role role) {
 		this.roles.add(role);
 	}

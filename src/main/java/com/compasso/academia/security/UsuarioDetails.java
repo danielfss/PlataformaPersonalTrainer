@@ -3,6 +3,7 @@ package com.compasso.academia.security;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -22,7 +23,7 @@ public class UsuarioDetails implements UserDetails {
 	
 	@Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-		List<Role> roles = usuario.getRoles();
+		Set<Role> roles = usuario.getRoles();
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
         
         for (Role role: roles) {
@@ -79,7 +80,7 @@ public class UsuarioDetails implements UserDetails {
 		this.usuario.setNome(name);
 	}
 	
-	public List<Role> getRoles() {
+	public Set<Role> getRoles() {
 
 		return usuario.getRoles();
 	}	
