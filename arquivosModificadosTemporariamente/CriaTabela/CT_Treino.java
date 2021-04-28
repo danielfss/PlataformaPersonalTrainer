@@ -13,7 +13,7 @@ import com.compasso.academia.model.Video;
 
 public class CT_Treino 
 {
-   /* public static void main(String[] args) 
+     public static void main(String[] args) 
     {
         Usuario usuario = new Usuario();
         usuario.setId(1L);
@@ -27,8 +27,8 @@ public class CT_Treino
         Treino treino = new Treino();
         treino.setTitulo("Treino 1");
         treino.setDescricao("Testando o primeiro treino");
-        treino.setArquivo(Arrays.asList(arquivo));
         treino.setVideo(Arrays.asList(video));
+        treino.setArquivo(Arrays.asList(arquivo));
         treino.setUsuario(Arrays.asList(usuario));
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("personaltrainer");
@@ -41,5 +41,5 @@ public class CT_Treino
 
         em.getTransaction().commit();
         em.close();
-    }*/
+    }
 }

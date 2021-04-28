@@ -78,19 +78,5 @@ public class TreinoController {
 		
 		return "/dashboard/detalhesTreino";
 	}
-	
-	@PostMapping("/detalhesTreino/{id}")
-	public String detalhesTreinoSave(@PathVariable ("id") long id, Usuario usuario, Model model) {
-		List<Usuario> listaUsuarios = service.getUsuarios();
-		model.addAttribute("listaUsuarios", listaUsuarios);
-		
-		Treino treino = treinoRepo.findById(id);
-		
-		usuario.addTreinos(treino);
-
-		usuarioRepo.save(usuario);
-		
-		return "redirect/dashboard/detalhesTreino/{id}";
-	}
 
 }
