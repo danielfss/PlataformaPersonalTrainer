@@ -65,4 +65,5 @@
 	transition: 0.5s;
 	transition-property: left;
 	border-radius: 5px;
+	padding-bottom: 30px;
 }
