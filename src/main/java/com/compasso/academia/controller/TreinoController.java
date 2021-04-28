@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.compasso.academia.model.Identificador;
 import com.compasso.academia.model.Treino;
 import com.compasso.academia.model.Usuario;
 import com.compasso.academia.repository.TreinoRepository;
@@ -24,12 +25,13 @@ public class TreinoController {
 	@Autowired
 	private TreinoRepository treinoRepo;
 	
+	@Autowired
 	private UsuarioRepository usuarioRepo;
 	
 	@Autowired
 	private AppService service;
 	
-	@GetMapping("/treino_aluno")
+	@GetMapping("/dashboard/treino_aluno")
 	public String viewTreinoAluno() {
 		return "/dashboard/treino_aluno";
 	}
@@ -60,8 +62,7 @@ public class TreinoController {
 		return "redirect:/dashboard/lista_treinos";
 	}
 	
-	
-	@GetMapping("/lista_treinos")
+	@GetMapping("/dashboard/lista_treinos")
 	public String viewListaTreinos(Model model) {
 		List<Treino> listaTreinos = service.getTreinos();
 		model.addAttribute("listaTreinos", listaTreinos);
@@ -69,14 +70,41 @@ public class TreinoController {
 		return "/dashboard/lista_treinos";
 	}
 	
-	
-	@GetMapping("/detalhesTreino/{id}")
-	public String viewDetalhesTreino(@PathVariable ("id") long id, Model model) {
+	@RequestMapping(value="/dashboard/detalhesTreino/{id}", method=RequestMethod.GET)
+	public String viewDetalhesTreino(@PathVariable ("id") long id, Model modelTreino, Model modelAluno, Model modelTodosAlunos, Model modelPegaIdAluno) {
+		
+		List<Usuario> todosUsuarios = usuarioRepo.findAll();
 		Treino treino = treinoRepo.findById(id);
-		model.addAttribute("treino", treino);
+
+		List<Usuario> listaAlunos = treino.getUsuario();
+		
+		modelAluno.addAttribute("listaAlunos", listaAlunos);
+		modelTreino.addAttribute("treino", treino);
+		modelTodosAlunos.addAttribute("todosUsuarios", todosUsuarios);
+		modelPegaIdAluno.addAttribute("identificador", new Identificador());
 		
 		
 		return "/dashboard/detalhesTreino";
+	}
+	
+	@RequestMapping(value="/dashboard/detalhesTreino/{id}", method=RequestMethod.POST)
+	public String detalhesTreinoSave(@PathVariable ("id") long id, @ModelAttribute Identificador ident, Model model) {
+		
+		model.addAttribute("identificador", ident);
+		
+		Treino treino = treinoRepo.findById(id);
+		
+		Usuario usuario = usuarioRepo.findPorId(ident.getId());
+
+		List<Usuario> listaAluno = treino.getUsuario();
+		
+		listaAluno.add(usuario);			
+		
+		treino.setUsuario(listaAluno);		
+
+		treinoRepo.save(treino);
+		
+		return "redirect:/dashboard/detalhesTreino/{id}";
 	}
 
 }

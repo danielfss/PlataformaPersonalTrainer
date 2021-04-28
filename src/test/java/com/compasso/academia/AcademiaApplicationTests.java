@@ -36,13 +36,13 @@ class AcademiaApplicationTests {
 @Test
 public void testAddRoleToNewUser() { 
 	Usuario usuario = new Usuario();
-	usuario.setNome("al33");
-	usuario.setEmail("jo@email.com");
+	usuario.setNome("Alex");
+	usuario.setEmail("alex@email.com");
 	usuario.setSenha("87654321");
 	usuario.setTelefone("719000000");
 	usuario.setEnabled(true);
   
-	Role role = roleRepo.findByName("ALUNO"); 
+	Role role = roleRepo.findByName("PERSONAL"); 
   
 	usuario.addRoles(role);
   

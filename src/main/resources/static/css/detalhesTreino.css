@@ -11,6 +11,14 @@
 	margin-bottom: 3px;
 }
 
+#formDados2 {
+	max-width: 300px;
+	margin: 0 auto;
+	background-color: #353440;
+	border-radius: 5px;
+	margin-bottom: 3px;
+}
+
 .form-group label {
 	color: white;
 	font-weight: 500;
@@ -44,4 +52,17 @@
 .labelDetalhes .col-8 {
 	margin-top: 7px;
 	color: white;
+}
+
+.sidebar {
+	background: #353440;
+	margin-top: 26px;
+	padding-top: 30px;
+	position: relative;
+	left: 0;
+	width: 200px;
+	height: auto;
+	transition: 0.5s;
+	transition-property: left;
+	border-radius: 5px;
 }

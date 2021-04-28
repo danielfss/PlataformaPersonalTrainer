@@ -253,6 +253,18 @@ label #sidebar_btn:hover {
 	border-radius: 10px;
 }
 
+.subtitulo4 {
+	margin-left: 37px;
+	margin-top: -8%;
+	padding: 12px;
+	color: white;
+	background-color: #D9B777;
+	text-align: center;
+	width: 200px;
+	font-size: 20px;
+	border-radius: 10px;
+}
+
 .senha {
 	margin-top: 30px;
 }
