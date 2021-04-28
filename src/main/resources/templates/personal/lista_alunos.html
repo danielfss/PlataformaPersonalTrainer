@@ -88,18 +88,7 @@
                         
                     </div>
                </div> <!-- FIM LISTAGEM-->
-               	<!-- Security -->
-				<div class="text-center text-center align-self-center p-4 text-white">
-					<form th:action="@{/logout}" method="post">
-					<div sec:authorize="isAuthenticated()" class="subtitulo">
-						Bem Vindo(a)! <b><span sec:authentication="name">Usuario</span></b>
-						&nbsp;
-						<span sec:authentication="principal.authorities">Roles</span>
-					</div>
-					<input class="btn btn-primary" type="submit" value="Deslogar" />
-				</form>
-				</div>
-            	<!-- Security Ends-->
+               	
             
             
         </div>

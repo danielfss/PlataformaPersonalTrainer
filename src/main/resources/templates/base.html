@@ -10,9 +10,11 @@
 				</a>
 	
 				<div class="logo-container">
-					<a th:href="@{/home}" class="btn btn-outline-success3">Home</a> <a
-						th:href="@{/sobre}" class="btn btn-outline-success3">Sobre
-						Nós</a> <a th:href="@{/contato}" class="btn btn-outline-success3">Contato</a>
+					<a th:href="@{/home}" class="btn btn-outline-success3">Home</a>
+					<a th:href="@{/sobre}" class="btn btn-outline-success3">Sobre Nós</a>
+					<a th:href="@{/contato}" class="btn btn-outline-success3">Contato</a>
+					<a th:href="@{/personal/dashboard_personal}" th:if="${#authorization.expression('hasAuthority(''PERSONAL'')')}" class="btn btn-outline-success3">Dashboard</a>
+					<a th:href="@{/dashboard/dashboard_aluno}" th:if="${#authorization.expression('hasAuthority(''ALUNO'')')}" class="btn btn-outline-success3">Dashboard</a>
 					<a class="btn btn-outline-success3" sec:authorize="!isAuthenticated()" th:href="@{/login}">Login</a>
 					<a onclick="document.querySelector('#form-login').submit()" class="btn btn-outline-success3" sec:authorize="isAuthenticated()" href="#" >Logout</a>
 				</div>
