@@ -77,6 +77,7 @@ public class HomeController {
 		String encodedPassword = encoder.encode(usuario.getSenha());
 		
 		Role roleUser =  roleRepo.findByName("ALUNO");
+
 		usuario.addRole(roleUser);
 		usuario.setSenha(encodedPassword);
 		usuario.setEnabled(true);
