@@ -65,6 +65,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                     .antMatchers("/personal/**").hasAuthority("PERSONAL")
                     .antMatchers("/dashboard/**").authenticated()                
                     .and()
+                    .csrf().disable()
                 .formLogin()
                     .loginPage("/login")
                     .usernameParameter("email")

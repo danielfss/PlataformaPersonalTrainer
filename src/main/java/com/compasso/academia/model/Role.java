@@ -8,28 +8,29 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "roles")
-public class Role {
+@Table(name = "Roles")
+public class Role 
+{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	@Column(nullable = false, length = 45)
-	private String name;
+	private String nome;
 	
 	public Role() {}
 	
-	public Role (String name) {
-		this.name = name;		
+	public Role (String nome) {
+		this.nome = nome;		
 	}
 	
 	public Role(Long id) {
 		this.id = id;
 	}
 	
-	public Role(Long id, String name) {
+	public Role(Long id, String nome) {
 		this.id = id;
-		this.name = name;
+		this.nome = nome;
 	}
 
 	public Long getId() {
@@ -40,12 +41,12 @@ public class Role {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 	
 	

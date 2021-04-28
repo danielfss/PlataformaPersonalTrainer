@@ -24,7 +24,7 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler {
         if (roles.contains("PERSONAL")) {
             httpServletResponse.sendRedirect("/personal/dashboard_personal");
         } else {
-            httpServletResponse.sendRedirect("/dashboard_aluno");
+            httpServletResponse.sendRedirect("dashboard/dashboard_aluno");
         }
     }
 }

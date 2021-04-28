@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Nossos ignore ###
+src/main/resources/application.properties
+src/main/resources/META-INF/persistence.xml
