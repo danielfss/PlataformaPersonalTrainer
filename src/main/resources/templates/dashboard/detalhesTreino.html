@@ -47,7 +47,7 @@
 		<div class="container">
             <!-- Início do Formulário -->
             <div class="container Forms text-center">
-                <form th:action="@{/submeter_treino}" id="formDados" name="formTreino" method="POST">
+                <div id="formDados" >
                     <div class="border border-secondary-3 rounded mt-1">
                         <div class="container text-center">
                         	<!-- <div class="text-white bg-dark" th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"  th:style = "${message} ? 'color: green' "/> -->
@@ -80,19 +80,35 @@
                                     </div>
                                 </div>
                             </div>      
-                            <a href="/minha_conta"><button type="submit" class="btn btn-outline-success2 mb-4 m-3">Salvar Alterações</button></a>                                                 
+                            <!-- <a href="/minha_conta"><button type="submit" class="btn btn-outline-success2 mb-4 m-3">Salvar Alterações</button></a> -->                                                 
                         </div>
                     </div>
-                </form>                     
+                </div>                     
             </div>
             <!-- Final do Formulário -->
-            
+            <div class="container Forms text-left" th:if="${#authorization.expression('hasAuthority(''PERSONAL'')')}">
+				<div id="formDados2">
+	             	<div class="border border-secondary-3 rounded mt-1">
+	                  	<div class="container text-center selecionaALuno">
+							<form name='addAluno' th:object="${identificador}" method="post">
+	              				<h4 class="subtitulo4">Novo Aluno:</h4>
+	                 			<select th:field="*{id}">
+	                  				<option th:each="alunos: ${todosUsuarios}"
+	                  					th:value="${alunos.id}"
+	               						th:utext="${alunos.nome}"/>
+	             				</select>
+	              				<button class="btn btn-outline-success2"  name="submit" type="submit">Add</button>	
+	  						</form>
+	          			</div>
+	          		</div>
+          		</div>
+        	</div>       
             <!-- Início da Lista de Alunos -->
             <div class="container Forms text-left" th:if="${#authorization.expression('hasAuthority(''PERSONAL'')')}">
-                <form  th:object="${treinos}" id="formDados" name="formDados" method="POST">
+                <div id="formDados">
                     <div class="border border-secondary-3 rounded mt-1">
                         <div class="container text-left">
-                        	<div class="text-white bg-dark" th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"  th:style = "${message} ? 'color: green' "/></div>
+                        	<!-- <div class="text-white bg-dark" th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"  th:style = "${message} ? 'color: green' "/></div> -->
                             <h3 class="subtitulo3">Alunos Cadastrado</h3>
                             <div class="form-group m-3">
                            		 <div class="tableTreino">
@@ -104,33 +120,17 @@
 											</tr>
 										</thead>
 										<tbody>
-											<tr class="text-white" th:each="listaAluno: ${listaAlunos}">                            
-												<td><span  th:text="${listaAluno.email}">Id</span></td>
-												<td><span th:text="${listaAluno.nome}">Nome</span></td>
-		
-		
-												<!-- <td class="d-flex justify-content-center">
-													<a th:href="@{/editar_treino}" class="btn btn-outline-success2">Editar</a>
-													
-													<a th:href="@{/editar_treino/{id}(id=${usuario.id})}" class="btn btn-outline-success2">Treino</a>
-												
-													<a href="#"
-														class="nav-link text-white" th:data-yourid="${usuario.id}" data-toggle="modal" data-target="#modalLoginForm">
-														<i class="bi bi-cloud-upload"></i>
-													</a>
-													
-												</td> -->
+											<tr class=" text-center text-white" th:each="listaAluno: ${listaAlunos}" th:with="convertedList=${#lists.toList(listaAlunos)}">                            
+												<td><span  th:text="${listaAluno.id}">Nome</span></td>
+												<td><span th:text="${listaAluno.nome}">Email</span></td>
 											</tr>
 										</tbody>
 									</table>
-									<div class="text-center">
-										<a href="/cadastrar_treino" class="text-center btn btn-outline-success2">Adicionar Aluno</a>
-									</div>
 								</div>                    		 
                             </div>                                                       
                         </div>
                     </div>
-                </form>                     
+                </div>                     
             </div>
             <!-- Final da Lista de Alunos -->
             </div>

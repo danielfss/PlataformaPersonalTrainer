@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.annotation.Rollback;
 
 import com.compasso.academia.model.Role;
@@ -34,11 +35,16 @@ class AcademiaApplicationTests {
 
 
 @Test
-public void testAddRoleToNewUser() { 
+public void testAddRoleToNewUser() {
+	
+	String senha = "87654321";
+	BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+	String encodedPassword = encoder.encode(senha);
+	
 	Usuario usuario = new Usuario();
-	usuario.setNome("al33");
-	usuario.setEmail("jo@email.com");
-	usuario.setSenha("87654321");
+	usuario.setNome("Daniel");
+	usuario.setEmail("dani@email.com");
+	usuario.setSenha(encodedPassword);
 	usuario.setTelefone("719000000");
 	usuario.setEnabled(true);
   

@@ -39,10 +39,11 @@ main {
 	position: relative;
 	left: 0;
 	width: 200px;
-	height: 137%;
+	height: auto;
 	transition: 0.5s;
 	transition-property: left;
 	border-radius: 5px;
+	padding-bottom: 30px;
 }
 
 .sidebar a:hover {
@@ -250,6 +251,18 @@ label #sidebar_btn:hover {
 	text-align: center;
 	width: 300px;
 	font-size: 23px;
+	border-radius: 10px;
+}
+
+.subtitulo4 {
+	margin-left: 37px;
+	margin-top: -8%;
+	padding: 12px;
+	color: white;
+	background-color: #D9B777;
+	text-align: center;
+	width: 200px;
+	font-size: 20px;
 	border-radius: 10px;
 }
 

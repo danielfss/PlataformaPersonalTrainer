@@ -63,7 +63,7 @@
 										<tbody>
 											<tr class="text-white" th:each="treino: ${listaTreinos}">                            
 												<td><span  th:text="${treino.id}">Id</span></td>
-												<td><a class="text-decor" th:href="@{/detalhesTreino/{id}(id=${treino.id})}"><span th:text="${treino.titulo}">Nome</span></a></td>
+												<td><a class="text-decor" th:href="@{/dashboard/detalhesTreino/{id}(id=${treino.id})}"><span th:text="${treino.titulo}">Nome</span></a></td>
 		
 		
 												<!-- <td class="d-flex justify-content-center">

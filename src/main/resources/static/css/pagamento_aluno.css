@@ -1,0 +1,49 @@
+.margem {
+	margin-top: 30px;
+	margin-left: 5%;
+}
+.margem-cads-pagamento{
+	width: 17rem; 
+	height: 15rem; 
+	margin-left: 4%; 
+	margin-bottom: 2%
+}
+
+.tamanho-card-pagamento {
+	width: 1000px;
+	height: auto;
+}
+
+.bg-card-pagamento {
+	background-color: #D9B777;
+}
+
+
+
+.tamanho-img {
+	margin-left: 5%;
+	width: 5%;
+}
+
+.bg-card {
+	background-color: #353440;
+	color: white;
+}
+
+.margem-box2 {
+	margin-top: 2%;
+	margin: auto auto;
+}
+
+.subtitulo2 {
+	margin-top: -2.5%;
+	padding: 12px;
+	color: white;
+	background-color: #D9B777;
+	text-align: center;
+	width: 300px;
+	font-size: 23px;
+	border-radius: 10px;
+}
+
+
