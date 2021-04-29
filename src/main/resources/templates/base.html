@@ -10,13 +10,13 @@
 				</a>
 	
 				<div class="logo-container">
-					<a th:style ="${#httpServletRequest.requestURI.contains('home')} ? 'color:#D9B777' : 'color:white'" th:href="@{/home}" class="btn btn-outline-success3">Home</a>
-					<a th:style ="${#httpServletRequest.requestURI.contains('sobre')} ? 'color:#D9B777' : 'color:white'" th:href="@{/sobre}" class="btn btn-outline-success3">Sobre Nós</a>
-					<a th:style ="${#httpServletRequest.requestURI.contains('contato')} ? 'color:#D9B777' : 'color:white'" th:href="@{/contato}" class="btn btn-outline-success3">Contato</a>
+					<a  th:href="@{/home}" class="btn btn-outline-success3" th:style ="${#httpServletRequest.requestURI.contains('home')} ? 'color:#D9B777' : 'color:white'">Home</a>
+					<a th:href="@{/sobre}" class="btn btn-outline-success3" th:style ="${#httpServletRequest.requestURI.contains('sobre')} ? 'color:#D9B777' : 'color:white'">Sobre Nós</a>
+					<a th:href="@{/contato}" class="btn btn-outline-success3" th:style ="${#httpServletRequest.requestURI.contains('contato')} ? 'color:#D9B777' : 'color:white'">Contato</a>
 					<a th:href="@{/personal/dashboard_personal}" th:if="${#authorization.expression('hasAuthority(''PERSONAL'')')}" class="btn btn-outline-success3">Dashboard</a>
 					<a th:href="@{/dashboard/dashboard_aluno}" th:if="${#authorization.expression('hasAuthority(''ALUNO'')')}" class="btn btn-outline-success3">Dashboard</a>
-					<a class="btn btn-outline-success3" sec:authorize="!isAuthenticated()" th:href="@{/login}">Login</a>
-					<a onclick="document.querySelector('#form-login').submit()" class="btn btn-outline-success3" sec:authorize="isAuthenticated()" href="#" >Logout</a>
+					<a class="btn btn-outline-success3" sec:authorize="!isAuthenticated()" th:href="@{/login}" th:style ="${#httpServletRequest.requestURI.contains('login')} ? 'color:#D9B777' : 'color:white'" >Login</a>
+					<a onclick="document.querySelector('#form-login').submit()" class="btn btn-outline-success3" sec:authorize="isAuthenticated()" href="#">Logout</a>
 				</div>
 			</div>
 			<form id="form-login" th:action="@{/logout}" method="post"></form>
