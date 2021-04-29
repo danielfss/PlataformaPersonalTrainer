@@ -9,7 +9,9 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.compasso.academia.model.AlunoStatus;
 import com.compasso.academia.model.Role;
+import com.compasso.academia.model.Treino;
 import com.compasso.academia.model.Usuario;
 
 public class UsuarioDetails implements UserDetails {
@@ -89,8 +91,16 @@ public class UsuarioDetails implements UserDetails {
 		return usuario.getTelefone();
 	}
 	
+	public AlunoStatus getStatus() {
+		return usuario.getStatus();
+	}
+	
 	public String getEmail() {
 		return usuario.getEmail();
+	}
+	
+	public List<Treino> getTreinos() {
+		return usuario.getTreinos();
 	}
 	/*
 	 * public boolean hasRole(String roleName) { return usuario.getRoles(roleName);

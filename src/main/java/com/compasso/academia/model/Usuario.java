@@ -1,15 +1,20 @@
 package com.compasso.academia.model;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
@@ -37,8 +42,16 @@ public class Usuario {
 	@Column(nullable = true)
 	private boolean enabled;
 	
+	@Column(nullable = false)
+	@Enumerated(value = EnumType.STRING)
+	private AlunoStatus status;	
+	
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(unique = true, nullable = true)
 	private Set<Role> roles = new HashSet<Role>();
+	
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "usuario")
+	private List<Treino> treinos = new ArrayList<Treino>();
 	
 	public Long getId() {
 		return id;
@@ -88,6 +101,14 @@ public class Usuario {
 		this.enabled = enabled;
 	}
 	
+	public AlunoStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(AlunoStatus status) {
+		this.status = status;
+	}
+
 	public Set<Role> getRoles() {
 		return roles;
 	}
@@ -99,4 +120,17 @@ public class Usuario {
 	public void addRoles(Role role) {
 		this.roles.add(role);
 	}
+
+	public List<Treino> getTreinos() {
+		return treinos;
+	}
+
+	public void setTreinos(List<Treino> treinos) {
+		this.treinos = treinos;
+	}
+	
+	public void addTreinos(Treino treino) {
+		this.treinos.add(treino);
+	}
+	
 }
