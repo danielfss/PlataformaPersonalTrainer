@@ -74,23 +74,21 @@ public class TreinoController {
 		return "/dashboard/lista_treinos";
 	}
 	
-	/*
-	 * @GetMapping("/dashboard/meus_treinos") public String
-	 * viewListaMeusTreinos(Model model, @AuthenticationPrincipal UsuarioDetails
-	 * loggedUser) {
-	 * 
-	 * List<Treino> todosTreinos = service.getTreinos();
-	 * 
-	 * List<Treino> todosAlunos = new ArrayList<Treino>();
-	 * 
-	 * //List<Aula> agendados = new ArrayList<>();
-	 * 
-	 * for(int i; i<todosTreinos.size(); i++){ if(todosTreinos.ge ==
-	 * loggedUser.getId()) { Usuario aluno = tp.getUsuario(); } }
-	 * model.addAttribute("meusTreinos", todosAlunos);
-	 * 
-	 * return "/dashboard/meus_treinos"; }
-	 */
+	
+	  @GetMapping("/dashboard/meus_treinos") 
+	  public String viewListaMeusTreinos(Model model, @AuthenticationPrincipal UsuarioDetails loggedUser) {
+	  
+	  List<Treino> todosTreinos = loggedUser.getTreinos();
+	  
+	  
+	  //List<Aula> agendados = new ArrayList<>();
+	  
+	  model.addAttribute("meusTreinos", todosTreinos);
+	  
+	  return "/dashboard/meus_treinos"; 
+	  
+	  }
+	 
 	
 	@RequestMapping(value="/dashboard/detalhesTreino/{id}", method=RequestMethod.GET)
 	public String viewDetalhesTreino(@PathVariable ("id") long id, Model modelTreino, Model modelAluno, Model modelTodosAlunos, Model modelPegaIdAluno) {
@@ -98,9 +96,7 @@ public class TreinoController {
 		List<Usuario> todosUsuarios = usuarioRepo.findAll();
 		Treino treino = treinoRepo.findById(id);
 
-		List<Usuario> listaAlunos = treino.getUsuario();
 		
-		modelAluno.addAttribute("listaAlunos", listaAlunos);
 		modelTreino.addAttribute("treino", treino);
 		modelTodosAlunos.addAttribute("todosUsuarios", todosUsuarios);
 		modelPegaIdAluno.addAttribute("identificador", new Identificador());
@@ -118,16 +114,20 @@ public class TreinoController {
 		
 		Usuario usuario = usuarioRepo.findPorId(ident.getId());
 
-		List<Usuario> listaAluno = treino.getUsuario();
+		List<Treino> listaTreino = usuario.getTreinos();
 		
-		listaAluno.add(usuario);			
+		listaTreino.add(treino);			
 		
-		treino.setUsuario(listaAluno);		
-		usuario.addTreinos(treino);
+		usuario.setTreinos(listaTreino);	
 		
-		treinoRepo.save(treino);
 		service.saveUsuario(usuario);
 		
+		
+		
+		/*
+		 * for(Treino tp : listaTreino){ if(tp.getDescricao() != null) { List<Treino> tr
+		 * = new ArrayList<>(); tr.add(tp); System.out.println("Desc"+ tr.); } }
+		 */
 		return "redirect:/dashboard/detalhesTreino/{id}";
 	}
 

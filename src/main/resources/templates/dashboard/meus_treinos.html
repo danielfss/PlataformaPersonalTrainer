@@ -61,11 +61,11 @@
 											</tr>
 										</thead>
 										<tbody>
-											<tr class="text-white" th:each="alunos: ${meusTreinos}">                            
-												<td><span  th:text="${alunos.usuario.getId()}">Id</span></td>
+											<tr class="text-white" th:each="treino: ${meusTreinos}">                            
+												<td><span  th:text="${treino.id}">Id</span></td>
 												
-												<!-- <td><a class="text-decor" >
-												<span th:text="${alunos.usuario.}">Nome</span></a></td> -->
+												<td><a class="text-decor" >
+												<span th:text="${treino.titulo}">Nome</span></a></td>
 		
 		
 												<!-- <td class="d-flex justify-content-center">

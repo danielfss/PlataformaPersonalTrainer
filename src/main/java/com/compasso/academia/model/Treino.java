@@ -38,13 +38,8 @@ public class Treino implements Serializable{
     @Column(nullable = true)
     private URL video;
     
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinTable(
-			name = "treino_aluno",
-			joinColumns = @JoinColumn(name = "treino_id"),
-			inverseJoinColumns = @JoinColumn(name = "aluno_id")			
-			)
-	private List<Usuario> usuario;
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "treinos")
+	private List<Usuario> treinos;
     
     public Long getId() {
         return id;
@@ -85,18 +80,15 @@ public class Treino implements Serializable{
 	public void setVideo(URL video) {
 		this.video = video;
 	}
-	
-	public void addTreinos(Usuario usuarios) {
-		this.usuario.add(usuarios);
-		
+
+	public List<Usuario> getTreinos() {
+		return treinos;
 	}
 
-    public List<Usuario> getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(List<Usuario> usuario) {
-        this.usuario = usuario;
-    }
+	public void setTreinos(List<Usuario> treinos) {
+		this.treinos = treinos;
+	}
+	
+	
 }
 

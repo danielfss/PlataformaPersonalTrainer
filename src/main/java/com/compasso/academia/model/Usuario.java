@@ -15,6 +15,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
@@ -50,8 +51,13 @@ public class Usuario {
 	@JoinColumn(unique = true, nullable = true)
 	private Set<Role> roles = new HashSet<Role>();
 	
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "usuario")
-	private List<Treino> treinos = new ArrayList<Treino>();
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(
+			name = "aluno_treino",
+			joinColumns = @JoinColumn(name = "aluno_id"),
+			inverseJoinColumns = @JoinColumn(name = "treino_id")			
+			)
+	private List<Treino> treinos;
 	
 	public Long getId() {
 		return id;
