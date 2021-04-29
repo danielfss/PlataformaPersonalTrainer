@@ -80,23 +80,6 @@ public class UsuarioDTO {
         this.csenha = csenha;
     }
 
-    public void createUser(Role roleUser){
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        
-        Usuario user = new Usuario();
-
-
-        user.setEnabled(true);
-        user.addRoles(roleUser);
-        user.setSenha(encoder.encode(getSenha()));
-        user.setNome(getNome());
-        user.setEmail(getEmail());
-        user.setTelefone(getTelefone());
-        user.setStatus(AlunoStatus.ATIVADA);
-
-        service.saveUsuario(user);
-    }
-
     @Override
     public String toString() {
         return "UsuarioDTO{" +
