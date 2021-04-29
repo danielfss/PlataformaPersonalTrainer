@@ -1,8 +1,7 @@
 package com.compasso.academia.controller;
 
 import com.compasso.academia.dto.UsuarioDTO;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -23,15 +22,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.compasso.academia.model.Usuario;
 import com.compasso.academia.repository.RoleRepository;
+import com.compasso.academia.repository.UsuarioRepository;
 import com.compasso.academia.service.AppService;
 
 import javax.validation.Valid;
 
 @Controller
 public class HomeController {
-
-	private static final Logger log = LoggerFactory.getLogger(HomeController.class);
-
 	@InitBinder
 	public void initBinder(WebDataBinder dataBinder){
 		StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
@@ -44,13 +41,19 @@ public class HomeController {
 	@Autowired
 	private RoleRepository roleRepo;
 	
+	@Autowired
+	private UsuarioRepository usuarioRepo;
+	
 	@GetMapping("/home")
 	public String viewHome() {
 		return "/home";
 	}
 	
 	@GetMapping("/contato")
-	public String viewContato() {
+	public String viewContato(Model model) {
+		Optional<Usuario> usuario = usuarioRepo.findById(1l);
+		String url = "https://api.whatsapp.com/send?phone="+usuario.get().getTelefone();
+		model.addAttribute("url", url);
 		return "/contato";
 	}
 	
@@ -101,8 +104,6 @@ public class HomeController {
 		if(bindingResult.hasErrors()){
 			return "cadastro";
 		}
-
-		log.info("UsuarioDTO ~> {}", usuario);
 
 		usuario.createUser();
 		return "redirect:/login";

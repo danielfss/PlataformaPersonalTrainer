@@ -19,10 +19,6 @@ public class Aula
     private Long id;
     private LocalDateTime disponibilidade;
 
-    @JoinColumn(unique = true)
-    @OneToOne
-    private Usuario personal;
-
     @JoinColumn(unique = true, nullable = true)
     @OneToOne
     private Usuario aluno;
@@ -41,14 +37,6 @@ public class Aula
 
     public void setDisponibilidade(LocalDateTime disponibilidade) {
         this.disponibilidade = disponibilidade;
-    }
-
-    public Usuario getPersonal() {
-        return personal;
-    }
-
-    public void setPersonal(Usuario personal) {
-        this.personal = personal;
     }
 
     public Usuario getAluno() {
