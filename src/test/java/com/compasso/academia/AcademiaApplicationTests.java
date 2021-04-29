@@ -43,12 +43,12 @@ public void testAddRoleToNewUser() {
 	
 	Usuario usuario = new Usuario();
 	usuario.setNome("Daniel");
-	usuario.setEmail("dani@email.com");
+	usuario.setEmail("dev@email.com");
 	usuario.setSenha(encodedPassword);
 	usuario.setTelefone("719000000");
 	usuario.setEnabled(true);
   
-	Role role = roleRepo.findByName("ALUNO"); 
+	Role role = roleRepo.findByName("PERSONAL");
   
 	usuario.addRoles(role);
   

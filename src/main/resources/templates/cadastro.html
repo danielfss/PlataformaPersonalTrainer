@@ -28,7 +28,7 @@
 
         <!-- Início do Formulário -->
         <div class="container Forms">
-            <form id="formDados" name="formDados" th:action="@{/submeter_registro}" method="post" th:object="${usuario}">
+            <form id="formDados" name="formDados" th:action="@{/cadastro}" method="post" th:object="${usuarioDTO}">
                 <div class="border border-secondary-3 rounded mt-1">
                     <div class="container text-center">
                         <h3 class="subtitulo">Cadastro</h3>
@@ -36,31 +36,36 @@
                             <div class="form-group row mt-2 mb-2">
                                 <label class="col-form-label" for="nome">Nome:</label>
                                 <div class="col-8">                                
-                                    <input type="text" class="form-control" placeholder="Insira o nome" th:field="*{nome}" required minlength="2" maxlength="20"/>
+                                    <input type="text" class="form-control" placeholder="Insira o nome" th:field="*{nome}" th:errorClass="is-invalid"/>
+                                    <div th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="invalid-feedback"></div>
                                 </div>
                             </div>
                             <div class="form-group row mt-2 mb-2">       
                                 <div class="col-8">
                                     <label class="col-form-label" for="email">Email:</label>
-                                    <input type="email" class="form-control" id="email" placeholder="Insira o email" name="email" th:field="*{email}" required minlength="4" maxlength="45"/>
+                                    <input type="email" class="form-control" id="email" placeholder="Insira o email" name="email" th:field="*{email}" th:errorClass="is-invalid"/>
+                                    <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="invalid-feedback"></div>
                                 </div>
                             </div>
                             <div class="form-group row mt-2 mb-2">  
                                 <div class="col-8">
                                     <label class="col-form-label" for="tel">Telefone:</label>
-                                    <input type="tel" class="form-control" id="tel" placeholder="Insira o telefone" name="tel" th:field="*{telefone}" required minlength="4" maxlength="20"/>
+                                    <input type="tel" class="form-control" id="tel" placeholder="Insira o telefone" name="tel" th:field="*{telefone}" th:errorClass="is-invalid"/>
+                                    <div th:if="${#fields.hasErrors('telefone')}" th:errors="*{telefone}" class="invalid-feedback"></div>
                                 </div>
                             </div>
                             <div class="form-group row mt-2 mb-2">                             
                                 <div class="col-8">
                                     <label class="col-form-label" for="senha">Senha:</label>
-                                    <input type="password" class="form-control" id="senha" placeholder="Insira a senha" name="senha" th:field="*{senha}" required minlength="8" maxlength="30"/>
+                                    <input type="password" class="form-control" id="senha" placeholder="Insira a senha" name="senha" th:field="*{senha}" th:errorClass="is-invalid"/>
+                                    <div th:if="${#fields.hasErrors('senha')}" th:errors="*{senha}" class="invalid-feedback"></div>
                                 </div>
                             </div>
                             <div class="form-group row mt-2 mb-2">                              
                                 <div class="col-8">
                                     <label class="col-form-label" for="senha">Conf. Senha:</label>
-                                    <input type="password" class="form-control" id="cSenha" placeholder="Confirme a senha"/>
+                                    <input type="password" class="form-control" id="cSenha" th:field="*{csenha}" th:errorClass="is-invalid" placeholder="Confirme a senha"/>
+                                    <div th:if="${#fields.hasErrors('csenha')}" th:errors="*{csenha}" class="invalid-feedback"></div>
                                 </div>
                             </div>
                         </div>
