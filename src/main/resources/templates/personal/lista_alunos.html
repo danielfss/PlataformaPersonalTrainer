@@ -69,7 +69,7 @@
 										<th>Nome</th>
 										<th>E-mail</th>
 										<th>Telefone</th>
-										<th>Situação</th>
+										<th>Status</th>
 										<th>Ações</th>
 									</tr>
 								</thead>
@@ -78,8 +78,11 @@
 										<td><span  th:text="${usuario.nome}">Nome</span></td>
 										<td><span th:text="${usuario.email}" class="nome-text-lista-aluno">Email</span></td>
 										<td><span th:text="${usuario.telefone}">Telefone</span></td>
-										<td><span>Devendo</span></td>
-										<td class="d-flex justify-content-center"> <a th:href="@{/editar_aluno/{id}(id=${usuario.id})}" class="btn btn-outline-success2">Editar</a>
+										<td><span th:text="${usuario.status}">Status</span></td>
+										<td class="d-flex justify-content-center">
+										<!-- <a th:href="@{/editar_aluno/{id}(id=${usuario.id})}" class="btn btn-outline-success2">Editar</a> -->
+										
+										<a th:href="@{/usuario/delete/{id}(id=${usuario.id})}" class="btn btn-outline-success2">Editar Status</a>
 										</td>
 									</tr>
 								</tbody>
