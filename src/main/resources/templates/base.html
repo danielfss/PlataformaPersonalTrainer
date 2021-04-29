@@ -10,9 +10,9 @@
 				</a>
 	
 				<div class="logo-container">
-					<a th:href="@{/home}" class="btn btn-outline-success3">Home</a>
-					<a th:href="@{/sobre}" class="btn btn-outline-success3">Sobre Nós</a>
-					<a th:href="@{/contato}" class="btn btn-outline-success3">Contato</a>
+					<a th:style ="${#httpServletRequest.requestURI.contains('home')} ? 'color:#D9B777' : 'color:white'" th:href="@{/home}" class="btn btn-outline-success3">Home</a>
+					<a th:style ="${#httpServletRequest.requestURI.contains('sobre')} ? 'color:#D9B777' : 'color:white'" th:href="@{/sobre}" class="btn btn-outline-success3">Sobre Nós</a>
+					<a th:style ="${#httpServletRequest.requestURI.contains('contato')} ? 'color:#D9B777' : 'color:white'" th:href="@{/contato}" class="btn btn-outline-success3">Contato</a>
 					<a th:href="@{/personal/dashboard_personal}" th:if="${#authorization.expression('hasAuthority(''PERSONAL'')')}" class="btn btn-outline-success3">Dashboard</a>
 					<a th:href="@{/dashboard/dashboard_aluno}" th:if="${#authorization.expression('hasAuthority(''ALUNO'')')}" class="btn btn-outline-success3">Dashboard</a>
 					<a class="btn btn-outline-success3" sec:authorize="!isAuthenticated()" th:href="@{/login}">Login</a>
