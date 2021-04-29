@@ -71,7 +71,7 @@ public class AgendaController {
 		
 		aulaRepository.save(agendada);
 		
-		return "redirec:/dashboard/agenda_aluno";
+		return "redirect:/dashboard/agenda_aluno";
 	}
 	
 	@GetMapping("/personal/agenda_personal")

@@ -10,6 +10,7 @@ import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.LockedException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,6 +21,8 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.compasso.academia.model.AlunoStatus;
+import com.compasso.academia.model.Role;
 import com.compasso.academia.model.Usuario;
 import com.compasso.academia.repository.RoleRepository;
 import com.compasso.academia.repository.UsuarioRepository;
@@ -94,6 +97,8 @@ public class HomeController {
 	@PostMapping("/cadastro")
 		public String salvar(@Valid UsuarioDTO usuario, BindingResult bindingResult) {
 
+		Role roleUser = roleRepo.findByName("ALUNO");
+		
 		if(usuario.getSenha() != null && usuario.getCsenha() != null){
 			if(!usuario.getCsenha().equals(usuario.getSenha())){
 				bindingResult.addError(new FieldError("usuario", "csenha",
@@ -105,7 +110,21 @@ public class HomeController {
 			return "cadastro";
 		}
 
-		usuario.createUser();
-		return "redirect:/login";
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        
+        Usuario user = new Usuario();
+
+
+        user.setEnabled(true);
+        user.addRoles(roleUser);
+        user.setSenha(encoder.encode(usuario.getSenha()));
+        user.setNome(usuario.getNome());
+        user.setEmail(usuario.getEmail());
+        user.setTelefone(usuario.getTelefone());
+        user.setStatus(AlunoStatus.ATIVADA);
+
+        service.saveUsuario(user);
+		
+        return "redirect:/login";
 	}
 }
