@@ -1,5 +1,32 @@
+html {
+	height: 100%;
+	background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(/images/dashboardBG4.jpg) no-repeat center center fixed;
+  	background-size: cover;
+  	
+}
+
+/*------------------------------- INICIO BASE ------------------------------------------ */
+body {
+	background: transparent;
+	min-height: 100vh;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
 #calendario {
-	margin-top: 30px;
+	display: block;
+	padding-bottom: 10px;
+}
+
+.horarios{
+	margin-right:8px;
+}
+
+.btnFechar{
+	margin-top:4px;
+	color: #B52929;
 }
 
 #labelRadios {
@@ -19,8 +46,10 @@
 }
 
 .lista-agendamento {
-	margin-left: 2%;
+	margin-left: 6%;
 	background-color: #353440;
+	flex-flow: wrap;
+	
 }
 
 .listagem-agendamento {
@@ -28,7 +57,7 @@
 	font-size: 13px;
 	color: white;
 	border-color: transparent;
-	background-color: #353440;
+	background-color: #353440;	
 }
 
 .subtitulo2 {
@@ -154,8 +183,9 @@
 	margin-right: 2%;
 }
 
-.linha {
-	color: #FFF;
+
+.linha2 {
+	color: #BF9B6F;
 	margin-left: 3%;
 	margin-right: 3%;
 	border-top: 1px solid

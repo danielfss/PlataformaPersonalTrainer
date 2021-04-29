@@ -1,6 +1,22 @@
+html {
+	height: 100%;
+	background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(/images/dashboardBG6.jpg) no-repeat center center fixed;
+  	background-size: cover;
+  	
+}
+
+/*------------------------------- INICIO BASE ------------------------------------------ */
+body {
+	background: transparent;
+	min-height: 100vh;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
 .margem {
 	margin-top: 30px;
-	margin-left: 5%;
 }
 .margem-cads-pagamento{
 	width: 17rem; 
@@ -17,7 +33,6 @@
 .bg-card-pagamento {
 	background-color: #D9B777;
 }
-
 
 
 .tamanho-img {
