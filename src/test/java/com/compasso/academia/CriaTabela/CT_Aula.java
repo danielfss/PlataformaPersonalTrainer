@@ -11,7 +11,7 @@ import com.compasso.academia.model.Usuario;
 
 public class CT_Aula 
 {
-    public static void main(String[] args) 
+    /*public static void main(String[] args) 
     {
         Usuario usuarioPersonal = new Usuario();
         usuarioPersonal.setId(1L);
@@ -29,4 +29,5 @@ public class CT_Aula
         em.getTransaction().commit();
         em.close();
     }
+    */
 }

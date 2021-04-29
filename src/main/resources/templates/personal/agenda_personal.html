@@ -151,24 +151,23 @@
 								<li class="list-group-item text-center agenda-horario">Horário</li>
 
 								<li class="list-group-item text-center agenda-telefone">Telefone</li>
-<!-- 								<li class="list-group-item text-center agenda-mensagem">Mensagem</li>
-								<li class="list-group-item text-center agenda-novo-treino">Novo Treino</li> -->
+								<li class="list-group-item text-center agenda-novo-treino">Ações</li>
 
 							</ul>
 							
 							<div>
 								<ul class="list-group list-group-horizontal lista-agenda mb-0" th:each="aula : ${aulas}">
 									<li class="list-group-item listagem-agendamento b-0">
-									<li class="list-group-item text-center listagem-agenda-nome" th:text="${aula.aluno.nome}">
+									<!-- <li class="list-group-item text-center listagem-agenda-nome" th:text="${aula.aluno.nome}">
 										<span>José de Almeida</span>
-									</li>
+									</li> -->
 									<li class="list-group-item text-center listagem-agenda-horario" th:text="${#temporals.format(aula.disponibilidade, 'dd/MM/yyyy HH:mm')}">
 										15/04/2021- 17:30
 									</li>
-									<li
+									<!-- <li
 										class="list-group-item text-center listagem-agenda-telefone" th:text="${aula.aluno.telefone}">4002-8922
 										<i class="bi bi-chat-dots"></i>
-									</li>
+									</li> -->
 <!-- 									<li class="list-group-item text-center listagem-agenda-mensagem">Preciso
 										exercitar minhas pernas</li>
 									<li class="list-group-item text-center listagem-agenda-novo-treino">
@@ -191,10 +190,7 @@
 									<li
 										class="list-group-item text-center listagem-agenda-telefone">4002-8922
 										<i class="bi bi-chat-dots"></i>
-									</li>
-									<li
-										class="list-group-item text-center listagem-agenda-mensagem">Preciso
-										exercitar minhas pernas</li>
+									</li>									
 									<li
 										class="list-group-item text-center listagem-agenda-novo-treino"><a
 										href="#" class=" text-white" data-toggle="modal"
@@ -204,32 +200,6 @@
 								</ul>
 								<div class="linha mb-3"></div>
 							</div>
-							<div>
-								<div class="linha mb-3"></div>
-								<ul class="list-group list-group-horizontal lista-agenda mb-0">
-									<li class="list-group-item listagem-agendamento b-0">
-									<li class="list-group-item text-center listagem-agenda-nome">
-										<span>Maria da Conceição</span>
-									</li>
-									<li class="list-group-item text-center listagem-agenda-horario">16/04/2021
-										- 13:30</li>
-									<li
-										class="list-group-item text-center listagem-agenda-telefone">4002-8922
-										<i class="bi bi-chat-dots"></i>
-									</li>
-									<li
-										class="list-group-item text-center listagem-agenda-mensagem">Dor
-										na coluna, preciso mudar de treino</li>
-									<li
-										class="list-group-item text-center listagem-agenda-novo-treino"><a
-										href="#" class=" text-white" data-toggle="modal"
-										data-target="#modalLoginForm"> <i
-											class="bi bi-cloud-upload"></i></a></li>
-
-								</ul>
-								<div class="linha mb-3"></div>
-							</div>
-
 						</div>
 					</div>
 				</div>

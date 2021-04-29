@@ -5,16 +5,25 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.compasso.academia.dto.AulaDto;
 import com.compasso.academia.model.Aula;
+import com.compasso.academia.model.Identificador;
+import com.compasso.academia.model.Usuario;
 import com.compasso.academia.repository.AulaRepository;
+import com.compasso.academia.repository.UsuarioRepository;
+import com.compasso.academia.security.UsuarioDetails;
 import com.compasso.academia.service.AppService;
+
 
 @Controller
 public class AulaController {
@@ -24,11 +33,18 @@ public class AulaController {
 	/* CONTROLLER AULA */
 	@Autowired
 	private AulaRepository aulaRepository;
-
-	@GetMapping("/dashboard/agenda_aluno")
-	public String viewDashboardAluno(Model model) {
-		List<Aula> aulas = service.getAulas();
+	
+	@Autowired
+	private UsuarioRepository usuarioRepo;
+	
+	@RequestMapping(value = "/dashboard/agenda_aluno", method=RequestMethod.GET)
+	public String viewDashboardAluno(Model model, Model modelPegaIdHorario ) {
+		List<Aula> aulas = aulaRepository.findAll();
+		
 		model.addAttribute("aulas", aulas);
+		
+		modelPegaIdHorario.addAttribute("identificador", new Identificador());
+		
 		return "/dashboard/agenda_aluno";
 	}
 
@@ -54,9 +70,21 @@ public class AulaController {
 	}
 
 	/* Endpoint do aluno */
-	@PostMapping("agendaAula")
-	public String agendarAula() {
-		return "/dashboard/agenda_aluno";
+	@RequestMapping(value = "/dashboard/agenda_aluno", method=RequestMethod.POST)
+	public String AgendaAluno(@AuthenticationPrincipal UsuarioDetails loggedUser, @ModelAttribute Identificador ident, Model model){
+		
+		model.addAttribute("identificador", ident);
+		
+		String email = loggedUser.getUsername();
+		Usuario usuario = usuarioRepo.findByEmail(email);
+		
+		Aula agendada = aulaRepository.findById(ident.getId());
+		agendada.setAluno(usuario);
+		
+		
+		aulaRepository.save(agendada);
+		
+		return "redirect:/dashboard/agenda_aluno";
 	}
 	/* FIM CONTROLLER AULA */
 }
