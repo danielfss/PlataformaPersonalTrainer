@@ -106,7 +106,7 @@ public class HomeController {
 		if(usuario.getSenha() != null && usuario.getCsenha() != null){
 			if(!usuario.getCsenha().equals(usuario.getSenha())){
 				bindingResult.addError(new FieldError("usuario", "csenha",
-						"A confirmacao de senha deve ser igual a senha!"));
+						"A confirmação de senha deve ser igual a senha!"));
 			}
 		}
 
@@ -128,7 +128,7 @@ public class HomeController {
         user.setStatus(AlunoStatus.ATIVADA);
         user.setToken(TokenService.generateNewToken());
 
-        String message = String.format("Bem vindo %s\nInformacoes de sua conta:\nToken (GUARDE OU ANOTE PARA TROCAR SUA SENHA): %s", user.getNome(), user.getToken());
+        String message = String.format("Bem vindo %s\nInformações de sua conta:\nToken (GUARDE OU ANOTE PARA TROCAR SUA SENHA): %s", user.getNome(), user.getToken());
 
 		sendEmailService.sendEmail(user.getEmail(), message, "Bem-vindo a Sculpt Tech!");
         service.saveUsuario(user);
