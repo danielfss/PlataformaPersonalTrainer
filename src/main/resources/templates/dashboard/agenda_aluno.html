@@ -31,8 +31,6 @@
 	<!-- FIM NAVBAR -->
 
 	<main>
-
-		<div class="cont d-flex">
 			<!-- SIDEBAR -->
 			<div class="sideAluno sidebars" th:if="${#authorization.expression('hasAuthority(''ALUNO'')')}">
 				<div th:replace="~{base :: sideAluno}"></div>
@@ -41,12 +39,22 @@
 
 			<div class="container mt-3">
 				<div class="row">
-					<div id="calendario">
-						<button type="submit" class="btn btn-outline-success2" data-toggle="modal"
+				<div class="container Forms text-left">
+				<div id="formDados">          
+                    <div class="border border-secondary-3 rounded mt-1">
+                        <div class="container text-left">
+                        	<!-- <div class="text-white bg-dark" th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"  th:style = "${message} ? 'color: green' "/> -->
+                            <h3 class="subtitulo3">Horários Disponíveis</h3>
+                            <div class="form-group m-3">
+                           		 <div class="tableTreino">
+					<div id="calendario text-center" style="margin-left: 100px;">
+						<span class=" text-white" style="margin-right: 10px;">Horários Disponíveis: </span>
+						 <button type="submit" class="btn btn-outline-success2" data-toggle="modal"
 							data-target="#modalAgendamento">
 							Marcar aula
 						</button>
 					</div>
+			</div></div></div></div></div></div>
 
 					<!-- INICIO MODAL DE AGENDAMENTO DO ALUNO -->
 					<div class="modal fade" id="modalAgendamento" tabindex="-1" role="dialog"
@@ -90,30 +98,11 @@
 					</div>
 					<!-- FIM MODAL-FADE -->
 					<!-- FINAL MODAL DE AGENDAMENTO DO ALUNO -->
-
-		</div>
-		
-		<!-- <div class="container Forms text-left" >
-				<div id="formDados2">
-	             	<div class="border border-secondary-3 rounded mt-1">
-	                  	<div class="container text-center selecionaALuno">
-							<form name='addAluno' th:object="${identificador}" method="post">
-	              				<h4 class="subtitulo4">Novo Aluno:</h4>
-	                 			<select th:field="*{id}">
-	                  				<option th:each="aula: ${aulas}"
-	                  					th:value="${aula.id}"
-	               						th:utext="${aula.disponibilidade}"/>
-	             				</select>
-	              				<button class="btn btn-outline-success2"  name="submit" type="submit">Add</button>	
-	  						</form>
-	          			</div>
-	          		</div>
-          		</div>
-        	</div>  --> 
-					
-				</div>
+				</div>		
 			</div>
 		
+			
+			
 	</main>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

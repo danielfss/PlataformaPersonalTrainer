@@ -63,10 +63,8 @@
 										<tbody>
 											<tr class="text-white" th:each="treino: ${meusTreinos}">                            
 												<td><span  th:text="${treino.id}">Id</span></td>
-												
-												<td><a class="text-decor" >
-												<span th:text="${treino.titulo}">Nome</span></a></td>
-		
+																		
+												<td><a class="text-decor" th:href="@{/dashboard/treino_aluno/{id}(id=${treino.id})}"><span th:text="${treino.titulo}">Nome</span></a></td>
 		
 												<!-- <td class="d-flex justify-content-center">
 													<a th:href="@{/editar_treino}" class="btn btn-outline-success2">Editar</a>
