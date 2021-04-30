@@ -33,10 +33,10 @@ public class Treino implements Serializable{
     private String descricao;
 
     @Column(nullable = true)
-    private URL arquivo;
+    private String arquivo;
 
     @Column(nullable = true)
-    private URL video;
+    private String video;
     
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "treinos")
 	private List<Usuario> treinos;
@@ -65,20 +65,24 @@ public class Treino implements Serializable{
         this.descricao = descricao;
     }
 
-	public URL getArquivo() {
+	public String getArquivo() {
 		return arquivo;
 	}
 
-	public void setArquivo(URL arquivo) {
+	public void setArquivo(String arquivo) {
 		this.arquivo = arquivo;
 	}
 
-	public URL getVideo() {
+	public String getVideo() {
 		return video;
 	}
 
-	public void setVideo(URL video) {
+	public void setVideo(String video) {
 		this.video = video;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 	public List<Usuario> getTreinos() {

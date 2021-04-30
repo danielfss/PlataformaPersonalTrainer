@@ -48,37 +48,41 @@
             <!-- Início Container Aulas -->
             <div class="container  aulas">
                 <div class="d-flex justify-content-center mt-3">
-                    <div class="card mt-3 tamanho-card-detalhamento bg-card bg-box">
+                    <div th:object="${treinoAluno}" class="card mt-3 tamanho-card-detalhamento bg-card bg-box">
                         
                             <!-- INICIO CARD DETALHAMENTO -->
                             <div class=" d-flex justify-content-center">
-                                <h3 class="mb-1 subtitulo2 bg-card-detalhamento">Título do Exercício</h3>
+                                <h3 class="mb-1 subtitulo2 bg-card-detalhamento" th:text="${treinoAluno.titulo}">Título do Exercício</h3>
                             </div>
                             
-                            <div class="texto-card card-body align-self-center text-center">
-                                <span class="descricao">Descrição:</span>
-                                <div class="text-center">
-                                    <span class="texto-descricao">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</span>
-                                </div>
-                            </div>
-
-                            <ul class="list-group">
-                                <li class="list-group-item  bg-card">
-                                    <span class="mb-2 d-flex">Video:</span>
-                                    <div class="videoFrame mb-0 d-flex justify-content-center">
-                                        <video width="20" height="auto" controls>
-                                            <source src="movie.mp4" type="video/mp4">
-                                            <source src="movie.ogg" type="video/ogg">
-                                        
-                                        </video>
-                                    </div>
-                                </li>
-                                    <li class="list-group-item t1tl3 bg-card"> <span>Material: </span><a href="#"></a>
-                                </li>
-                            </ul>
-                        
+	                      <ul class="list-group">
+	                          <li class="list-group-item  bg-card">
+	                              <span class="mb-2 d-flex"></span>
+	                              <div class="videoFrame mb-0 d-flex justify-content-center border rounded">
+	                                  <iframe width="560" height="315" th:src="@{https://www.youtube.com/embed/{url} (url=${treinoAluno.video})}" 
+	                                  	title="YouTube video player" frameborder="0" 
+	                                  	allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+	                                  	allowfullscreen>
+	                                  </iframe>
+	                              </div>
+	                          </li>
+	                         <li class="list-group-item bg-card" > 
+                              	<span class="descricao">Download Material</span>
+                             	<a href="#" class="text-white text-decoration-none" th:text="${treinoAluno.arquivo}">Download Material</a>
+                          	</li>
+                      	</ul>
+                            
+	                     <div class="texto-card card-body align-self-center text-center">
+	                        <span class="descricao">Descrição:</span>
+	                        <div class="text-center border rounded">
+	                            <span class="text-white" th:text="${treinoAluno.descricao}">Descrição</span>
+	                        </div>
+	                    </div>	
                     </div>
+                    	
                 </div>
+                 
+                              
             </div>
             <!-- Final Container Aulas -->
         </main>

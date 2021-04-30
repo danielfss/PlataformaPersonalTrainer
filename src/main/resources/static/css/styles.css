@@ -136,6 +136,7 @@ label #sidebar_btn:hover {
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-between;
+	
 }
 
 .card {
@@ -143,6 +144,7 @@ label #sidebar_btn:hover {
 	height: 400px;
 	background-color: #353440;
 	border: 1px solid white;
+	border-radius: 0.6rem;
 }
 
 .card-body {
@@ -150,13 +152,13 @@ label #sidebar_btn:hover {
 }
 
 .card-body h5 {
-	color: #ffffff;
+	color: #D9B777;
 	text-align: center;
 }
 
 .card-body p {
 	text-align: center;
-	color: #D9B777;
+	color: white;
 }
 
 .card-body a {
@@ -172,7 +174,6 @@ label #sidebar_btn:hover {
 
 .card-footer a {
 	color: #D9B777;
-	border-bottom: #D9B777;
 }
 
 .card-footer a button {

@@ -1,6 +1,5 @@
 package com.compasso.academia.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,11 +9,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.compasso.academia.model.Aula;
 import com.compasso.academia.model.Identificador;
 import com.compasso.academia.model.Treino;
 import com.compasso.academia.model.Usuario;
@@ -35,13 +32,19 @@ public class TreinoController {
 	@Autowired
 	private AppService service;
 	
-	@GetMapping("/dashboard/treino_aluno")
-	public String viewTreinoAluno() {
+	@GetMapping("/dashboard/treino_aluno/{id}")
+	public String viewTreinoAluno(@PathVariable ("id") long id, Model model) {
+		
+		
+		Treino treino = treinoRepo.findById(id);
+		
+		model.addAttribute("treinoAluno", treino);
+		
 		return "/dashboard/treino_aluno";
 	}
 	
 	@GetMapping("/editar_treino/{id}")
-	public String viewTreino(@PathVariable ( value = "id") Long id, Model model){
+	public String viewEditarTreino(@PathVariable (value = "id") Long id, Model model){
 		model.addAttribute("treino", new Treino());
 		Usuario usuario = usuarioRepo.findPorId(id);
 		
@@ -88,6 +91,8 @@ public class TreinoController {
 	  return "/dashboard/meus_treinos"; 
 	  
 	  }
+	  
+	  
 	 
 	
 	@RequestMapping(value="/dashboard/detalhesTreino/{id}", method=RequestMethod.GET)
@@ -121,14 +126,11 @@ public class TreinoController {
 		usuario.setTreinos(listaTreino);	
 		
 		service.saveUsuario(usuario);
-		
-		
-		
-		/*
-		 * for(Treino tp : listaTreino){ if(tp.getDescricao() != null) { List<Treino> tr
-		 * = new ArrayList<>(); tr.add(tp); System.out.println("Desc"+ tr.); } }
-		 */
+
 		return "redirect:/dashboard/detalhesTreino/{id}";
 	}
+	
+
+		
 
 }
