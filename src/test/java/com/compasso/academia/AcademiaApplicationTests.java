@@ -43,7 +43,7 @@ public void testAddRoleToNewUser() {
 
 	Usuario usuario = new Usuario();
 	usuario.setNome("Daniel");
-	usuario.setEmail("dev@email.com");
+	usuario.setEmail("dani@email.com");
 	usuario.setSenha(encodedPassword);
 	usuario.setTelefone("719000000");
 	usuario.setEnabled(true);
