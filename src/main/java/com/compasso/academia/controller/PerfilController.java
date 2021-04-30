@@ -46,6 +46,7 @@ public class PerfilController {
 		usuario.setEnabled(true);
 		usuario.setSenha(loggedUser.getPassword());
 		usuario.setRoles(loggedUser.getRoles());
+		usuario.setStatus(loggedUser.getStatus());
 		
 	
 		

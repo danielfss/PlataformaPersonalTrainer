@@ -40,8 +40,6 @@
 	<!-- FIM NAVBAR -->
 
 	<main>
-		
-		<div class="cont d-flex">
 			<!-- SIDEBAR -->
 			<div class="sideAluno sidebars" th:if="${#authorization.expression('hasAuthority(''ALUNO'')')}" >
 				<div th:replace="~{base::sideAluno}"></div>
@@ -49,31 +47,26 @@
 			<!-- FIM SIDEBAR -->		
 		
 		<!-- Início do Card -->
-            <div class="container">
-                <div class="card" style="width: 18rem;">
-                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/d67atiJUuew" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <div class="card-body">
-                        <h5 class="card-title">Treino de Pernas</h5>
-                        <p class="card-text">Hoje é dia de treino de pernas! Faremos a seguinte sequência de exercícios...</p>
-                    </div>
-                    <div class="card-footer">
-                        <a href="#">
-                            <button type="submit" class="btn">
-                                Aula completa
-                            </button>
-                        </a>
-                        <a href="#">
-                            <button type="submit" class="btn">
-                                Download do PDF
-                            </button>
-                        </a>
-                        <!-- <a href="#" class="card-link">Download do PDF</a> -->
-                    </div>
-                </div>
-                
+            <div class="container cardAluno">
+            	<div class="row">
+	                <div class="card col-sm-3" th:each="treinos: ${meusTreinos}" style="width: 18rem;">	                  
+	                   <div class="border mt-3">
+	                   <iframe width="100%" height="100%" th:src="@{https://www.youtube.com/embed/{url} (url=${treinos.video})}" 
+	                    	allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+	                   		allowfullscreen></iframe>
+  						</div>
+	                    <div class="card-body">
+	                        <h5 class="card-title" th:text="${treinos.titulo}">Treino de Pernas</h5>
+	                        <p class="card-text" th:text="${treinos.descricao}">Descrição</p>
+	                    </div>
+	                    <div class="card-footer" >
+	                        <a th:href="@{/dashboard/treino_aluno/{id}(id=${treinos.id})}" class="btn btn-outline-success2 mb-3">Aula Completa</a>
+	                        <!-- <a href="#" class="card-link">Download do PDF</a> -->
+	                    </div>
+	                </div>               
+            	</div>
             </div>
             <!-- Final do Card -->
-		</div>
 	</main>
 	<!-- Scripts -->
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
