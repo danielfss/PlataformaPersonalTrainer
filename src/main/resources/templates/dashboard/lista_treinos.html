@@ -43,8 +43,9 @@
 			<div th:replace="~{base :: sideAluno}"></div>
 		</div>
 		<!-- FIM SIDEBAR -->
-
-            <!-- Início do Formulário -->
+		
+		
+			<div class="container">
             <div class="container Forms text-left">
                 <form  th:object="${treinos}" id="formDados" name="formDados" method="POST">
                     <div class="border border-secondary-3 rounded mt-1">
@@ -90,6 +91,38 @@
                 </form>                     
             </div>
             <!-- Final do Formulário -->
+            
+            <!-- Início da Lista de Alunos -->
+            <div class="container Forms text-left" th:if="${#authorization.expression('hasAuthority(''PERSONAL'')')}">
+                <div id="formDados">
+                    <div class="border border-secondary-3 rounded mt-1">
+                        <div class="container text-left">
+                        	<!-- <div class="text-white bg-dark" th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"  th:style = "${message} ? 'color: green' "/></div> -->
+                            <h3 class="subtitulo3">Alunos Cadastrado</h3>
+                            <div class="form-group m-3">
+                           		 <div class="tableTreino">
+									<table class="table table-striped table-bordered">
+										<thead class="thead-dark">
+											<tr class="text-center text-white" >                                     
+												<th>Código</th>
+												<th>Nome</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class=" text-center text-white" th:each="listaAluno: ${listaAlunos}" th:with="convertedList=${#lists.toList(listaAlunos)}">                            
+												<td><span  th:text="${listaAluno.id}">Nome</span></td>
+												<td><span th:text="${listaAluno.nome}">Email</span></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>                    		 
+                            </div>                                                       
+                        </div>
+                    </div>
+                </div>                     
+            </div>
+            </div>
+            <!-- Final da Lista de Alunos -->
         </main>
 
         <!-- Scripts -->

@@ -228,7 +228,11 @@ label #sidebar_btn:hover {
 	outline: 0;
 	padding: 12px;
 	color: white;
-	background-color: #D9B777;
+	
+	background: rgb(217,183,119);
+background: linear-gradient(90deg, rgba(217,183,119,1) 63%, rgba(161,135,86,1) 100%);
+	
+	
 	text-align: center;
 	width: 300px;
 	margin-left: 137px;
@@ -241,7 +245,12 @@ label #sidebar_btn:hover {
 	margin-top: -2.5%;
 	padding: 12px;
 	color: white;
-	background-color: #D9B777;
+	
+	
+	background: rgb(217,183,119);
+background: linear-gradient(90deg, rgba(217,183,119,1) 63%, rgba(161,135,86,1) 100%);
+	
+	
 	text-align: center;
 	width: 300px;
 	font-size: 23px;
@@ -253,7 +262,12 @@ label #sidebar_btn:hover {
 	margin-top: -8%;
 	padding: 12px;
 	color: white;
-	background-color: #D9B777;
+	
+	
+	background: rgb(217,183,119);
+background: linear-gradient(90deg, rgba(217,183,119,1) 63%, rgba(161,135,86,1) 100%);
+	
+	
 	text-align: center;
 	width: 200px;
 	font-size: 20px;

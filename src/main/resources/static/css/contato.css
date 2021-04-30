@@ -1,6 +1,6 @@
 html {
 	height: 100%;
-	background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(/images/tranning.jpg) no-repeat center center fixed;
+	background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(/images/dashboardBG6.jpg) no-repeat center center fixed;
   	background-size: cover;
   	
 }
@@ -105,6 +105,7 @@ header {
 	color:#D9B777;
 	font-size: 20px;
 }
+
 .content span {
 	font-size: 50px;
 	color: white;
@@ -116,6 +117,7 @@ header {
 	color: #D9B777;
 	font-family: 'Mitr', sans-serif;
 }
-
-
-/*------------------------------- FINAL CONTEUDO ------------------------------------------ */
+.slogan{
+	color:#D9B777;
+	font-size: 20px;
+}
