@@ -25,3 +25,9 @@ body {
 	height: 500px;
 }
 
+/* p {
+  max-width: 15ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+} */
