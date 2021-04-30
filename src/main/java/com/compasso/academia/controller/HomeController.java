@@ -2,6 +2,8 @@ package com.compasso.academia.controller;
 
 import com.compasso.academia.dto.UsuarioDTO;
 import java.util.Optional;
+
+import com.compasso.academia.service.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -20,18 +22,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-
 import com.compasso.academia.model.AlunoStatus;
 import com.compasso.academia.model.Role;
 import com.compasso.academia.model.Usuario;
 import com.compasso.academia.repository.RoleRepository;
 import com.compasso.academia.repository.UsuarioRepository;
 import com.compasso.academia.service.AppService;
-
 import javax.validation.Valid;
 
 @Controller
 public class HomeController {
+
+
 	@InitBinder
 	public void initBinder(WebDataBinder dataBinder){
 		StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
@@ -122,6 +124,7 @@ public class HomeController {
         user.setEmail(usuario.getEmail());
         user.setTelefone(usuario.getTelefone());
         user.setStatus(AlunoStatus.ATIVADA);
+        user.setToken(TokenService.generateNewToken());
 
         service.saveUsuario(user);
 		

@@ -45,7 +45,9 @@ public class Usuario {
 	
 	@Column(nullable = false)
 	@Enumerated(value = EnumType.STRING)
-	private AlunoStatus status;	
+	private AlunoStatus status;
+
+	private String token;
 	
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(unique = true, nullable = true)
@@ -58,7 +60,15 @@ public class Usuario {
 			inverseJoinColumns = @JoinColumn(name = "treino_id")			
 			)
 	private List<Treino> treinos;
-	
+
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -138,5 +148,14 @@ public class Usuario {
 	public void addTreinos(Treino treino) {
 		this.treinos.add(treino);
 	}
-	
+
+
+	@Override
+	public String toString() {
+		return "Usuario{" +
+				"nome='" + nome + '\'' +
+				", email='" + email + '\'' +
+				", token='" + token + '\'' +
+				'}';
+	}
 }
