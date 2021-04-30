@@ -3,6 +3,7 @@ package com.compasso.academia.controller;
 import com.compasso.academia.dto.UsuarioDTO;
 import java.util.Optional;
 
+import com.compasso.academia.service.SendEmailService;
 import com.compasso.academia.service.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
@@ -32,13 +33,14 @@ import javax.validation.Valid;
 
 @Controller
 public class HomeController {
-
-
 	@InitBinder
 	public void initBinder(WebDataBinder dataBinder){
 		StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
 		dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
 	}
+
+	@Autowired
+	private SendEmailService sendEmailService;
 
 	@Autowired
 	private AppService service;
@@ -104,7 +106,7 @@ public class HomeController {
 		if(usuario.getSenha() != null && usuario.getCsenha() != null){
 			if(!usuario.getCsenha().equals(usuario.getSenha())){
 				bindingResult.addError(new FieldError("usuario", "csenha",
-						"A confirmacao de senha deve ser igual a senha!"));
+						"A confirmação de senha deve ser igual a senha!"));
 			}
 		}
 
@@ -126,6 +128,9 @@ public class HomeController {
         user.setStatus(AlunoStatus.ATIVADA);
         user.setToken(TokenService.generateNewToken());
 
+        String message = String.format("Bem vindo %s\nInformações de sua conta:\nToken (GUARDE OU ANOTE PARA TROCAR SUA SENHA): %s", user.getNome(), user.getToken());
+
+		sendEmailService.sendEmail(user.getEmail(), message, "Bem-vindo a Sculpt Tech!");
         service.saveUsuario(user);
 		
         return "redirect:/login";
