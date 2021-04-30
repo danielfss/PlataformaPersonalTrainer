@@ -24,9 +24,12 @@ public class RoleRepositoryTests {
 	public void testCreateRoles() {
 		Role admin = new Role("PERSONAL");
 		Role user = new Role("ALUNO");
+<<<<<<< HEAD
 		
+=======
+>>>>>>> 0cabd928df3eb70e504dad8ec5f66fe597bada29
 		
-		repo.saveAll(List.of(user, admin));
+		repo.saveAll(List.of(admin, user));
 		
 		List<Role> listRoles = repo.findAll();
 		
