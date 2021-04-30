@@ -56,8 +56,8 @@ public class Usuario {
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
 			name = "aluno_treino",
-			joinColumns = @JoinColumn(unique = true, name = "aluno_id"),
-			inverseJoinColumns = @JoinColumn(unique = true, name = "treino_id")			
+			joinColumns = @JoinColumn(name = "aluno_id"),
+			inverseJoinColumns = @JoinColumn(name = "treino_id")			
 			)
 	private List<Treino> treinos;
 
