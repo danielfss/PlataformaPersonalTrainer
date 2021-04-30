@@ -78,16 +78,16 @@
 										<td><span  th:text="${usuario.nome}">Nome</span></td>
 										<td><span th:text="${usuario.email}" class="nome-text-lista-aluno">Email</span></td>
 										<td><span th:text="${usuario.telefone}">Telefone</span></td>
-										
+										<td>
 										<th:block th:switch="${usuario.status}">
-										<div th:case="'DESATIVADA'" class="text-white" th:text="${usuario.nome}"></div>
-										<div th:case="'ATIVADA'" class="text-black alert-success" th:text="${usuario.nome}"></div>
+										<div th:case="'DESATIVADA'" class="text-white" th:text="${usuario.status}">ss</div>
+										<div th:case="'ATIVADA'" class="text-black alert-success" th:text="${usuario.status}">ss</div>
 										
 										</th:block>
-										
+										</td>
 										
 										<td class="d-flex justify-content-center">
-										<a th:href="@{/editar_aluno/{id}(id=${usuario.id})}" class="btn btn-outline-success2">Editar</a>
+										<a th:href="@{/editar_aluno/{id}(id=${usuario.id})}" class="btn btn-outline-success2">Trocar Status</a>
 										
 											<!-- <a th:href="@{/usuario/delete/{id}(id=${usuario.id})}" class="btn btn-outline-success2">Editar Status</a> -->
 										</td>

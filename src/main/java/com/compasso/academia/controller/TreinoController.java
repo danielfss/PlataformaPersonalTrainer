@@ -110,24 +110,18 @@ public class TreinoController {
 		return "/dashboard/detalhesTreino";
 	}
 	
-	@RequestMapping(value="/dashboard/detalhesTreino/{id}", method=RequestMethod.POST)
-	public String detalhesTreinoSave(@PathVariable ("id") long id, @ModelAttribute Identificador ident, Model model) {
+	@RequestMapping(value="/dashboard/detalhesTreino/{idd}", method=RequestMethod.POST)
+	public String addAlunoAoTreino(@PathVariable ("idd") long idd, @ModelAttribute Identificador ident) {
 		
-		model.addAttribute("identificador", ident);
+		Treino treino = treinoRepo.findById(idd);
 		
-		Treino treino = treinoRepo.findById(id);
-		
-		Usuario usuario = usuarioRepo.findPorId(ident.getId());
-
-		List<Treino> listaTreino = usuario.getTreinos();
-		
-		listaTreino.add(treino);			
-		
-		usuario.setTreinos(listaTreino);	
+		Usuario usuario = usuarioRepo.findPorId(ident.getId());		
+			
+		usuario.addTreinos(treino);
 		
 		service.saveUsuario(usuario);
 
-		return "redirect:/dashboard/detalhesTreino/{id}";
+		return "redirect:/dashboard/detalhesTreino/{idd}";
 	}
 	
 
