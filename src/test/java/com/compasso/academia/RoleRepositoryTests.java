@@ -22,10 +22,10 @@ public class RoleRepositoryTests {
 	
 	@Test
 	public void testCreateRoles() {
-		Role user = new Role("ALUNO");
 		Role admin = new Role("PERSONAL");
+		Role user = new Role("ALUNO");
 		
-		repo.saveAll(List.of(user, admin));
+		repo.saveAll(List.of(admin, user));
 		
 		List<Role> listRoles = repo.findAll();
 		
