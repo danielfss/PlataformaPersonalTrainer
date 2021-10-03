@@ -2,11 +2,11 @@
 Projeto Final do meu período de 3 meses no programa de bolsas da Compasso UOL. Esse projeto foi realizado em grupo de 5 pessoas.
 
 Integrantes:
-° Alex de Souza Santos;
-° Daniel Ferreira Santos Souza;
-° João Victor Junqueira;
-° Juciélen Souza;
-° Rafael Pinho.
+* Alex de Souza Santos;
+* Daniel Ferreira Santos Souza;
+* João Victor Junqueira;
+* Juciélen Souza;
+* Rafael Pinho.
 
 ## CENÁRIO
 Um instrutor/personal trainer solicitou uma plataforma para que ele pudesse enviar treinos (vídeos, arquivos PDF e rotinas em formato de texto)
