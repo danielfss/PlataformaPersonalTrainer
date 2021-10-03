@@ -32,5 +32,5 @@ para os seus alunos de forma personalizada. Além disso, o aluno poderia ter a o
   4.5) Área de calendário, para visualizar os alunos agendados
   
   ### Tecnologias utilizadas
-  No backend: Java, Spring Boot, Spring MVC + Thymeleaf, Spring Data JPA com Hibernate na implementação e Spring Security;
-  No frontend: HTML5, CSS3 e Bootstrap.
+  * No backend: Java, Spring Boot, Spring MVC + Thymeleaf, Spring Data JPA com Hibernate na implementação e Spring Security;
+  * No frontend: HTML5, CSS3 e Bootstrap.
