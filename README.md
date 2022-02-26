@@ -14,22 +14,22 @@ para os seus alunos de forma personalizada. Além disso, o aluno poderia ter a o
 
 ### Especificações
 1. Cadastro de alunos
-    1.1 Nome, Email, Telefone, Senha (conformidade LGPD)
+    1. Nome, Email, Telefone, Senha (conformidade LGPD)
 2. Login do alunos e do personal trainer
-    2.1 Recuperação de senha
+    1. Recuperação de senha
 3. Dashboard do aluno
-    3.1 Área com vídeos do treino da semana
-    3.2 Área de calendário para agendar treino presencial com o Personal Trainer (max. 1 por semana).
-    3.3 Área para envio de mensagem para o Personal Trainer
-    3.4 Área para receber e baixar material em PDF
-    3.5 Área para edição de informações do aluno
-    3.6 Área de pagamento da mensalidade (integração com plataforma de pagamento ex.: Pagseguro)
+    1. Área com vídeos do treino da semana
+    2. Área de calendário para agendar treino presencial com o Personal Trainer (max. 1 por semana).
+    3. Área para envio de mensagem para o Personal Trainer
+    4. Área para receber e baixar material em PDF
+    5. Área para edição de informações do aluno
+    6. Área de pagamento da mensalidade (integração com plataforma de pagamento ex.: Pagseguro)
 4. Dashboard do personal trainer
-    4.1 Listagens dos alunos cadastrados
-    4.2 Exibição dos alunos pagantes e devedores
-    4.3 Área para subir treino personalizado para cada aluno vídeos e material PDF.
-    4.4 Área para leitura de mensagem de cada aluno
-    4.5 Área de calendário, para visualizar os alunos agendados
+    1. Listagens dos alunos cadastrados
+    2. Exibição dos alunos pagantes e devedores
+    3. Área para subir treino personalizado para cada aluno vídeos e material PDF.
+    4. Área para leitura de mensagem de cada aluno
+    5. Área de calendário, para visualizar os alunos agendados
   
   ### Tecnologias utilizadas
   * No backend: Java, Spring Boot, Spring MVC + Thymeleaf (fazendo o bind com o frontend), Spring Data JPA com Hibernate na implementação e Spring Security;
